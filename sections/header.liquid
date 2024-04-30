@@ -1,0 +1,39 @@
+<header class="header">
+    <div class="container">
+        <div class="header-container">
+            <div class="header__img">
+                <img src="{{ settings.logo | img_url: 'master' }}" width="{{ settings.logo.width }}" height="{{ settings.logo.height }}" alt="logo">
+            </div>
+    
+            <nav class="header__nav">
+                {% for link in linklists.main-menu.links %}
+                    {% if link.links != blank %}
+                        <div class="relative header__dropdown-container">
+                            <button class="header__nav-button barlow">
+                                {{ link.title }}
+                                {% render 'icon-dropdown' %}
+                            </button>
+    
+                            <div class="header__nav-dropdown">
+                                {% for sublink in link.links %}
+                                    <a class="header__nav-link barlow" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                                {% endfor %}                               
+                            </div>
+                        </div>
+                    {% else %}
+                        <div>
+                            <a class="header__nav-link barlow" href="{{ link.url }}">{{ link.title }}</a>
+                        </div>
+                    {% endif %}
+                   
+                {% endfor %}
+            </nav>
+        
+            <div class="header__links">
+                <a class="header__links-shopping" href="{{ routes.cart_url }}">
+                    {% render 'icon-shopping' %}
+                </a>
+            </div>
+        </div>    
+    </div>
+</header>

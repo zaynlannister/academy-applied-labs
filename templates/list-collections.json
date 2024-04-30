@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "wip",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
