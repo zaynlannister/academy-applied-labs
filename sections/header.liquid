@@ -1,3 +1,5 @@
+{% assign main_menu_linklist = linklists[section.settings.menu].links %}
+
 <header class="header">
     <div class="container">
         <div class="header-container">
@@ -9,7 +11,7 @@
             {% endif %}
     
             <nav class="header__nav">
-                {% for link in linklists.main-menu.links %}
+                {% for link in main_menu_linklist %}
                     {% if link.links != blank %}
                         <div class="relative header__dropdown-container">
                             <button class="header__nav-button barlow">
@@ -40,3 +42,17 @@
         </div>    
     </div>
 </header>
+
+{% schema %}
+{
+    "name": "Header",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Header menu",
+            "default": "main-menu"
+        }
+    ]
+}
+{% endschema %}

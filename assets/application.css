@@ -93,6 +93,7 @@ button {
   display: none;
   width: 200px;
   position: absolute;
+  background-color: #ffff;
   border: 1px solid #5e5e5e;
   padding: 10px;
 }
