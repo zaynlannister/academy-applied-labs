@@ -16,20 +16,15 @@
         "label": "Logo"
       },
       {
-        "type": "range",
-        "id": "logo_width",
-        "min": 50,
-        "max": 300,
-        "step": 10,
-        "default": 100,
-        "unit": "px",
-        "label": "Logo range"
-      },
-      {
         "type": "image_picker",
         "id": "favicon",
         "label": "Image picker",
         "info": "some info"
+      },
+      {
+        "type": "hidden",
+        "id": "default_logo",
+        "default": "https://academy-bekzod-tulayev.myshopify.com/cdn/shop/files/Miralou.svg?v=1714466002"
       }
     ]
   }

@@ -1,5 +1,6 @@
 html,
 body {
+  font-family: "Barlow", "Poppins", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -107,4 +108,54 @@ button {
 
 .header__nav-dropdown a:hover {
   background-color: #efefef;
+}
+
+/* footer  */
+
+.footer {
+  background-color: #252525;
+  color: #ffff;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer__info-slogan {
+  width: 140px;
+  font-size: 12px;
+}
+
+.footer__contact,
+.footer__nav-title,
+.footer__nav-sublink {
+  font-size: 14px;
+}
+
+.footer__nav-title,
+.footer__contact-title {
+  color: #ef3636;
+  text-transform: uppercase;
+}
+
+.footer__nav-sublink {
+  display: block;
+  color: #ffff;
+  margin-bottom: 10px;
+}
+
+.footer__nav-sublink:hover {
+  color: #dcdcdc;
+}
+
+.footer__contact-address,
+.footer__contact-number,
+.footer__contact-email {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins";
 }

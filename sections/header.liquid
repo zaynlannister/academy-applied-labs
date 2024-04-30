@@ -1,9 +1,12 @@
 <header class="header">
     <div class="container">
         <div class="header-container">
-            <div class="header__img">
-                <img src="{{ settings.logo | img_url: 'master' }}" width="{{ settings.logo.width }}" height="{{ settings.logo.height }}" alt="logo">
-            </div>
+            {% if settings.logo != blank %}
+                <div class="header__img">
+                    <img src="{{ settings.logo | img_url: 'master' }}" width="{{ settings.logo.width }}" height="{{ settings.logo.height }}" alt="logo">
+                </div>
+            {% else %}
+            {% endif %}
     
             <nav class="header__nav">
                 {% for link in linklists.main-menu.links %}
@@ -17,7 +20,7 @@
                             <div class="header__nav-dropdown">
                                 {% for sublink in link.links %}
                                     <a class="header__nav-link barlow" href="{{ sublink.url }}">{{ sublink.title }}</a>
-                                {% endfor %}                               
+                                {% endfor %}                       
                             </div>
                         </div>
                     {% else %}
