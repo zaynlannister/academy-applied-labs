@@ -6,7 +6,7 @@
                     {% when 'logo' %}
                         <div class="footer__info">
                             <img src="{{ shop.brand.logo.image.url }}" alt="logo">
-                            <p class="footer__info-slogan poppins">{{ shop.brand.slogan }}</p>
+                            <p class="footer__info-slogan poppins">{{ block.settings.logo_richtext }}</p>
                             <div>...</div>
                         </div>
                     {% when 'navigation' %}
@@ -49,7 +49,14 @@
         {
             "name": "Logo Column",
             "type": "logo",
-            "settings": []
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "logo_richtext",
+                    "label": "Text",
+                    "default": "<p>The best shop in the world</p>"
+                }
+            ]
         },
         {
             "name": "Navigation Column",
