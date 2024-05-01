@@ -5,7 +5,11 @@
                 {% case block.type %}
                     {% when 'logo' %}
                         <div class="footer__info">
-                            <img src="{{ shop.brand.logo.image.url }}" alt="logo">
+                            {% if section.settings.logo != blank %}
+                                <img src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}">
+                            {% else %}
+                                <p class="footer__info-shop">{{ shop.name }}</p>
+                            {% endif %}
                             <div class="footer__info-slogan poppins">
                                 {{ block.settings.logo_richtext }}
                             </div>
@@ -50,9 +54,14 @@
     "name": "Footer",
     "settings": [
         {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+        },
+        {
+            "type": "text",
             "id": "copyright",
-            "label": "Copyright Text",
-            "type": "text"
+            "label": "Copyright Text"
         }
     ],
     "max_blocks": 4,

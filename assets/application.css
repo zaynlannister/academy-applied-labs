@@ -130,6 +130,11 @@ button {
   padding: 30px 0;
 }
 
+.footer__info-shop {
+  color: #ffff;
+  text-transform: uppercase;
+}
+
 .footer__info-slogan {
   width: 140px;
   font-size: 12px;
