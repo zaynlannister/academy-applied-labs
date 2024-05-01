@@ -1,0 +1,43 @@
+<div class="page-404">
+    <p class="page-404__title">{{ section.settings.title }}</p>
+    <p class="poppins">{{ section.settings.subtext }}</p>
+    {% if section.settings.button_url == blank %}
+        {% assign shop_url = shop.secure_url %}
+        <a class="page-404__button" href="{{ shop_url }}">{{ section.settings.button_label }}</a>
+    {% else %}
+        {% assign shop_url = section.settings.button_url %}
+        <a class="page-404__button" href="{{ shop_url }}">{{ section.settings.button_label }}</a>
+    {% endif %}
+    
+</div>
+
+{% schema %}
+{
+    "name": "Template 404",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "404",
+            "label": "404 Heading Title"
+        },
+        {
+            "type": "text",
+            "id": "subtext",
+            "default": "The page you were looking for does not exist",
+            "label": "404 Subtext Title"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "default": "Go back",
+            "label": "404 Button Label"
+        },
+        {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+        }
+    ]
+}
+{% endschema %}

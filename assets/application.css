@@ -160,3 +160,29 @@ button {
   gap: 10px;
   font-family: "Poppins";
 }
+
+/* 404 page  */
+
+.page-404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 0 40px 0;
+}
+
+.page-404__title {
+  font-size: 50px;
+  line-height: 0;
+  font-weight: bold;
+}
+
+.page-404__button {
+  color: #fff;
+  background-color: #5e5e5e;
+  padding: 5px 20px;
+}
+
+.page-404__button:hover {
+  background-color: #858585;
+}

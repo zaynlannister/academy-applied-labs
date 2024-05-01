@@ -1,7 +1,8 @@
 {
+  "name": "Template 404",
   "sections": {
     "main": {
-      "type": "wip"
+      "type": "template-404"
     }
   },
   "order": ["main"]
