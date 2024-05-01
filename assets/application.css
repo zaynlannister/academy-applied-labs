@@ -205,3 +205,34 @@ button {
 .page-404__button:hover {
   background-color: #858585;
 }
+
+/* hero section  */
+
+.hero {
+  /* background-color: #434343; */
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.hero__column-text {
+  width: 400px;
+}
+
+.hero-title,
+.hero-subtitle {
+  color: #fff;
+}
+
+.hero-title {
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+}

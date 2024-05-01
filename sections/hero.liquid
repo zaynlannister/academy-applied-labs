@@ -1,0 +1,84 @@
+<div class="hero">
+    <div class="container">
+        <div class="hero-container">
+            <div class="hero__column-text">
+                <h1 class="hero-title">{{ section.settings.title }}</h1>
+                <div class="hero-subtitle poppins">
+                    {{ section.settings.subtitle }}
+                </div>
+                <button>{{ section.settings.button_label }}</button>
+            </div>
+            <div class="hero__column-image">
+                {% if section.settings.image != blank %}
+                    <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero {
+        background-image: url({{ section.settings.bg_image | img_url: 'master' }});
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Hero",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Subtile"
+        },
+        {
+            "type": "select",
+            "id": "button_type",
+            "label": "Button type",
+            "options": [
+                {
+                    "value": "primary",
+                    "label": "Primary"
+                },
+                {
+                    "value": "ordinary",
+                    "label": "Ordinary"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label"
+        },
+        {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button link"
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Background Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Section"
+        }
+    ]
+}
+{% endschema %}

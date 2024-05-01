@@ -1,8 +1,8 @@
 {
   "sections": {
-    "main": {
-      "type": "wip"
+    "hero": {
+      "type": "hero"
     }
   },
-  "order": ["main"]
+  "order": ["hero"]
 }
