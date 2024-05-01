@@ -208,10 +208,6 @@ button {
 
 /* hero section  */
 
-.hero {
-  /* background-color: #434343; */
-}
-
 .hero-container {
   display: flex;
   justify-content: center;
@@ -221,11 +217,6 @@ button {
 
 .hero__column-text {
   width: 400px;
-}
-
-.hero-title,
-.hero-subtitle {
-  color: #fff;
 }
 
 .hero-title {
