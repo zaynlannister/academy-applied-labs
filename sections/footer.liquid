@@ -1,37 +1,41 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-container">
-            <div class="footer__info">
-                <img src="{{ shop.brand.logo.image.url }}" alt="logo">
-                <p class="footer__info-slogan poppins">{{ shop.brand.slogan }}</p>
-                <div>...</div>
-            </div>
-            {% for link in linklists.footer.links %}
-                {% if link.links != blank %}
-                    <div class="footer__nav">
-                        <p class="footer__nav-title">{{ link.title }}</p>
-                        {% for sublink in link.links %}
-                            <a class="footer__nav-sublink poppins" href="{{ sublink.url }}">{{ sublink.title }}</a>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-                
-            {% endfor %}
-            <div class="footer__contact">
-                <p class="footer__contact-title">{{ section.settings.contact_title }}</p>
-                <p class="footer__contact-address">
-                    {% render 'icon-location' %}
-                    {{ shop.address.city }} , {{ shop.address.address1 }} , {{ shop.address.address2 }}
-                </p>
-                <p class="footer__contact-number">
-                    {% render 'icon-phone' %}
-                    {{ shop.phone }}
-                </p>
-                <p class="footer__contact-email">
-                    {% render 'icon-email' %}
-                    {{ shop.email }}
-                </p>
-            </div>
+            {% for block in section.blocks %}
+                {% case block.type %}
+                    {% when 'logo' %}
+                        <div class="footer__info">
+                            <img src="{{ shop.brand.logo.image.url }}" alt="logo">
+                            <p class="footer__info-slogan poppins">{{ shop.brand.slogan }}</p>
+                            <div>...</div>
+                        </div>
+                    {% when 'navigation' %}
+                        <div class="footer__nav">
+                            <p class="footer__nav-title">{{ block.settings.linklist.title }}</p>    
+                            {% for link in block.settings.linklist.links %}
+                                <a class="footer__nav-link poppins" href="{{ link.url }}">{{ link.title }}</a>
+                            {% endfor %}
+                        </div>
+                    {% when 'contact_column' %}
+                        <div class="footer__contact">
+                            <p class="footer__contact-title">{{ block.settings.contact_title }}</p>
+                            <p class="footer__contact-address">
+                                {% render 'icon-location' %}
+                                {{ shop.address.city }} , {{ shop.address.address1 }} , {{ shop.address.address2 }}
+                            </p>
+                            <p class="footer__contact-number">
+                                {% render 'icon-phone' %}
+                                {{ shop.phone }}
+                            </p>
+                            <p class="footer__contact-email">
+                                {% render 'icon-email' %}
+                                {{ shop.email }}
+                            </p>
+                        </div>
+                    {% else %}
+
+                {% endcase %}                
+            {% endfor %}    
         </div>
     </div>
 </footer>
@@ -39,12 +43,36 @@
 {% schema %}
 {
     "name": "Footer",
-    "settings": [
+    "settings": [],
+    "max_blocks": 4,
+    "blocks": [
         {
-            "type": "text",
-            "id": "contact_title",
-            "label": "Contact Title",
-            "default": "CONTACT US"
+            "name": "Logo Column",
+            "type": "logo",
+            "settings": []
+        },
+        {
+            "name": "Navigation Column",
+            "type": "navigation",
+            "settings": [
+                {
+                    "type": "link_list",
+                    "id": "linklist",
+                    "label": "Navigation menu"
+                }
+            ]
+        },
+        {
+            "name": "Contact Column",
+            "type": "contact_column",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "contact_title",
+                    "label": "Contact Title",
+                    "default": "CONTACT US"
+                }
+            ]
         }
     ]
 }

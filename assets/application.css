@@ -132,7 +132,7 @@ button {
 
 .footer__contact,
 .footer__nav-title,
-.footer__nav-sublink {
+.footer__nav-link {
   font-size: 14px;
 }
 
@@ -142,13 +142,13 @@ button {
   text-transform: uppercase;
 }
 
-.footer__nav-sublink {
+.footer__nav-link {
   display: block;
   color: #ffff;
   margin-bottom: 10px;
 }
 
-.footer__nav-sublink:hover {
+.footer__nav-link:hover {
   color: #dcdcdc;
 }
 
