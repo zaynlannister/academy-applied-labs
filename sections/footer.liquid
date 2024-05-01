@@ -21,15 +21,15 @@
                 <p class="footer__contact-title">CONTACT US</p>
                 <p class="footer__contact-address">
                     {% render 'icon-location' %}
-                    2715 Ash Dr. San Jose, South Dakota 83475
+                    {{ shop.address.city }} , {{ shop.address.address1 }} , {{ shop.address.address2 }}
                 </p>
                 <p class="footer__contact-number">
                     {% render 'icon-phone' %}
-                    (808) 555-0111
+                    {{ shop.phone }}
                 </p>
                 <p class="footer__contact-email">
                     {% render 'icon-email' %}
-                    miralou.conacts@example.com
+                    {{ shop.email }}
                 </p>
             </div>
         </div>
