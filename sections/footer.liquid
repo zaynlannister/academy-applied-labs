@@ -18,7 +18,7 @@
                 
             {% endfor %}
             <div class="footer__contact">
-                <p class="footer__contact-title">CONTACT US</p>
+                <p class="footer__contact-title">{{ section.settings.contact_title }}</p>
                 <p class="footer__contact-address">
                     {% render 'icon-location' %}
                     {{ shop.address.city }} , {{ shop.address.address1 }} , {{ shop.address.address2 }}
@@ -35,3 +35,17 @@
         </div>
     </div>
 </footer>
+
+{% schema %}
+{
+    "name": "Footer",
+    "settings": [
+        {
+            "type": "text",
+            "id": "contact_title",
+            "label": "Contact Title",
+            "default": "CONTACT US"
+        }
+    ]
+}
+{% endschema %}
