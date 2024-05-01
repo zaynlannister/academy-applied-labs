@@ -6,7 +6,9 @@
                     {% when 'logo' %}
                         <div class="footer__info">
                             <img src="{{ shop.brand.logo.image.url }}" alt="logo">
-                            <p class="footer__info-slogan poppins">{{ block.settings.logo_richtext }}</p>
+                            <div class="footer__info-slogan poppins">
+                                {{ block.settings.logo_richtext }}
+                            </div>
                             <div>...</div>
                         </div>
                     {% when 'navigation' %}
@@ -33,9 +35,12 @@
                             </p>
                         </div>
                     {% else %}
-
                 {% endcase %}                
             {% endfor %}    
+        </div>
+        <div class="footer-bottom">
+            <p>{{ shop.name }} , {{ section.settings.copyright }}</p>
+            <p>ALL RIGHT RESERVED</p>
         </div>
     </div>
 </footer>
@@ -43,7 +48,13 @@
 {% schema %}
 {
     "name": "Footer",
-    "settings": [],
+    "settings": [
+        {
+            "id": "copyright",
+            "label": "Copyright Text",
+            "type": "text"
+        }
+    ],
     "max_blocks": 4,
     "blocks": [
         {
