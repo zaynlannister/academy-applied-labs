@@ -3,12 +3,13 @@
 <header class="header">
     <div class="container">
         <div class="header-container">
-            {% if settings.logo != blank %}
-                <div class="header__img">
-                    <img src="{{ settings.logo | img_url: 'master' }}" width="{{ settings.logo.width }}" height="{{ settings.logo.height }}" alt="logo">
-                </div>
-            {% else %}
-            {% endif %}
+            <a href="/" class="header-logo">
+                {% if settings.logo != blank %}
+                    <img src="{{ settings.logo | img_url: 'master' }}" alt="{{ shop.name }}">
+                {% else %}
+                    <p class="header-logo__name">{{ shop.name }}</p>
+                {% endif %}
+            </a>
     
             <nav class="header__nav">
                 {% for link in main_menu_linklist %}

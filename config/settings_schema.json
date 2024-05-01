@@ -14,17 +14,6 @@
         "type": "image_picker",
         "id": "logo",
         "label": "Logo"
-      },
-      {
-        "type": "image_picker",
-        "id": "favicon",
-        "label": "Image picker",
-        "info": "some info"
-      },
-      {
-        "type": "hidden",
-        "id": "default_logo",
-        "default": "https://academy-bekzod-tulayev.myshopify.com/cdn/shop/files/Miralou.svg?v=1714466002"
       }
     ]
   }
