@@ -1,0 +1,63 @@
+<div class="two-column">
+    <div class="container">
+        <div class="two-column-container">
+            <div class="two-column__img">
+                {% if section.settings.image != blank %}
+                    <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
+                {% else %}
+                    {{ 'lifestyle-1' |  placeholder_svg_tag: 'two-column__placeholder' }}
+                {% endif %}
+            </div>
+            <div class="two-column__content">
+                <p class="two-column__title">{{ section.settings.title }}</p>
+                <span class="two-column__subtitle poppins">{{ section.settings.subtitle }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .two-column-container {
+        flex-direction: {{ section.settings.image_position  }};
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Two column section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "about miralou"
+        },
+        {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Subtitle"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "select",
+            "id": "image_position",
+            "label": "Image position",
+            "options": [
+                {
+                    "value": "row",
+                    "label": "Left"
+                },
+                {
+                    "value": "row-reverse",
+                    "label": "Right"
+                }
+            ],
+            "default": "row"
+        } 
+    ]
+}
+{% endschema %}

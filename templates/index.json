@@ -53,11 +53,21 @@
         "title": "Our products",
         "collection": "featured-collection"
       }
+    },
+    "two_column_section": {
+      "type": "two-column-section",
+      "settings": {
+        "title": "about miralou",
+        "subtitle": "<p>Ut donec suscipit nunc volutpat faucibus. Ut penatibus etiam diam facilisi at nibh nulla auctor lorem. Accumsan vulputate euismod massa sit egestas. Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. Elementum odio sagittis, interdum elit ipsum. Volutpat erat ac eu aliquam turpis.<\/p>",
+        "image": "shopify:\/\/shop_images\/Rectangle_45.png",
+        "image_position": "row"
+      }
     }
   },
   "order": [
     "hero",
     "featured_collection",
-    "list_collection"
+    "list_collection",
+    "two_column_section"
   ]
 }

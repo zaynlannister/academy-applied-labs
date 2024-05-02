@@ -427,6 +427,46 @@ button.ordinary:hover {
   padding-bottom: 10px;
 }
 
+/* two column section  */
+
+.two-column {
+  padding: 40px 0;
+}
+
+.two-column-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.two-column__img img,
+.two-column__placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.two-column__img,
+.two-column__content {
+  width: 50%;
+}
+
+.two-column__content {
+  background-color: #f6f6f6;
+  padding: 10px 30px;
+}
+
+.two-column__title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ef3636;
+  text-transform: uppercase;
+}
+
+.two-column__subtitle {
+  color: #626262;
+  text-transform: capitalize;
+}
+
 /* mobile menu  */
 
 .mobile-menu {
@@ -554,5 +594,16 @@ body.mobile .mobile-menu {
 
   .footer-bottom {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 740px) {
+  .two-column-container {
+    display: block;
+  }
+
+  .two-column__content,
+  .two-column__img {
+    width: 100%;
   }
 }
