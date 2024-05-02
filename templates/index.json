@@ -11,9 +11,45 @@
         "bg_image": "shopify:\/\/shop_images\/Background.jpg",
         "image": "shopify:\/\/shop_images\/hamza-nouasria-ksrsdzqxCPg-unsplash_1.png"
       }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_fheR8E": {
+          "type": "collection",
+          "settings": {
+            "collection": "men",
+            "card_image": "shopify:\/\/shop_images\/Rectangle_37.jpg"
+          }
+        },
+        "collection_epgEdg": {
+          "type": "collection",
+          "settings": {
+            "collection": "women",
+            "card_image": "shopify:\/\/shop_images\/Rectangle_39.jpg"
+          }
+        },
+        "collection_F6rXz3": {
+          "type": "collection",
+          "settings": {
+            "collection": "kids",
+            "card_image": "shopify:\/\/shop_images\/Rectangle_40.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "collection_fheR8E",
+        "collection_epgEdg",
+        "collection_F6rXz3"
+      ],
+      "settings": {
+        "title": "shop by categories",
+        "subtitle": "pick a category you need"
+      }
     }
   },
   "order": [
-    "hero"
+    "hero",
+    "featured_collection"
   ]
 }
