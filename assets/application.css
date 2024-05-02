@@ -18,7 +18,11 @@ a {
 
 button {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
+
+/* custom styles */
 
 .barlow {
   font-family: "Barlow", sans-serif !important;
@@ -36,6 +40,28 @@ button {
   width: min(1170px, 100%);
   margin: 0 auto;
   padding: 0 20px;
+}
+
+button.primary,
+button.ordinary {
+  border-radius: 6px;
+  padding: 10px 40px;
+  transition: 300ms all;
+  font-weight: bold;
+}
+
+button.primary {
+  color: #fff;
+  background-color: #000;
+}
+
+button.ordinary {
+  color: #fff;
+  background-color: #989898;
+}
+
+button.ordinary:hover {
+  background-color: #7d7d7d;
 }
 
 /* header styles */
@@ -226,4 +252,13 @@ button {
 
 .hero-subtitle {
   font-size: 16px;
+}
+
+.primary {
+  background-color: red;
+  color: #fff;
+}
+
+.ordinary {
+  background-color: green;
 }

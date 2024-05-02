@@ -1,6 +1,59 @@
 {
-  "current": "Default",
+  "current": {
+    "logo": "shopify:\/\/shop_images\/Miralou.svg",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "logo_UMbVG4": {
+            "type": "logo",
+            "settings": {
+              "logo_richtext": "<p>The best shop in the world<\/p>"
+            }
+          },
+          "navigation_bYdLiG": {
+            "type": "navigation",
+            "settings": {
+              "linklist": "information"
+            }
+          },
+          "navigation_8X996E": {
+            "type": "navigation",
+            "settings": {
+              "linklist": "footer"
+            }
+          },
+          "contact_column_zMXVMT": {
+            "type": "contact_column",
+            "settings": {
+              "contact_title": "CONTACT US"
+            }
+          }
+        },
+        "block_order": [
+          "logo_UMbVG4",
+          "navigation_bYdLiG",
+          "navigation_8X996E",
+          "contact_column_zMXVMT"
+        ],
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/MiralouWhite.svg",
+          "copyright": ""
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
-    "Default": {}
+    "Default": {
+    }
   }
 }

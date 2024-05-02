@@ -6,7 +6,7 @@
                 <div class="hero-subtitle poppins">
                     {{ section.settings.subtitle }}
                 </div>
-                <button>{{ section.settings.button_label }}</button>
+                <button class="{{ section.settings.button_type }} poppins">{{ section.settings.button_label }}</button>
             </div>
             <div class="hero__column-image">
                 {% if section.settings.image != blank %}
@@ -52,7 +52,8 @@
                     "value": "ordinary",
                     "label": "Ordinary"
                 }
-            ]
+            ],
+            "default": "ordinary"
         },
         {
             "type": "text",
