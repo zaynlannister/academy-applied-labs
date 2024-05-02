@@ -1,0 +1,15 @@
+<div class="product-card">
+    <div class="product-card__img">
+        {% if product.featured_image %}
+            <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}">
+        {% else %}
+            {{ 'product-2' |  placeholder_svg_tag: 'product-card__placeholder' }}
+        {% endif %}
+    </div>
+    <p class="product-card__vendor poppins">{{ product.vendor }}</p>
+    <p class="product-card__title">{{ product.title }}</p>
+    <p class="product-card__price">{{ product.price | money }}</p>
+    <a href="{{ product.url }}">
+        <button class="primary">View product</button>
+    </a>
+</div>

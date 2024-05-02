@@ -46,10 +46,18 @@
         "title": "shop by categories",
         "subtitle": "pick a category you need"
       }
+    },
+    "list_collection": {
+      "type": "list-collection",
+      "settings": {
+        "title": "Our products",
+        "collection": "featured-collection"
+      }
     }
   },
   "order": [
     "hero",
-    "featured_collection"
+    "featured_collection",
+    "list_collection"
   ]
 }
