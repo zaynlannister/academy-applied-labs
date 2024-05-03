@@ -20,10 +20,15 @@ a {
   text-decoration: none;
 }
 
+button,
+input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
 button {
   cursor: pointer;
-  background-color: transparent;
-  border: none;
 }
 
 /* custom styles */
@@ -47,7 +52,8 @@ button {
 }
 
 button.primary,
-button.ordinary {
+button.ordinary,
+button.warn {
   border-radius: 6px;
   padding: 10px 30px;
   transition: 300ms all;
@@ -70,6 +76,15 @@ button.primary:hover {
 
 button.ordinary:hover {
   background-color: #7d7d7d;
+}
+
+button.warn {
+  color: #fff;
+  background-color: #ef3636;
+}
+
+button.warn:hover {
+  background-color: #b61414;
 }
 
 /* header styles */

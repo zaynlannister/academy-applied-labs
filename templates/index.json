@@ -150,6 +150,14 @@
         "image": "shopify:\/\/shop_images\/close-up-of-a-pine-tree-showing-texture-of-pine-needles.jpg",
         "url": "https:\/\/www.instagram.com\/shopify"
       }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "title": "our newsseller",
+        "subtitle": "<p>Subscribe to get more useful information about us and to get you 15% discount offyour next purchase  <\/p>",
+        "button_type": "warn"
+      }
     }
   },
   "order": [
@@ -160,6 +168,7 @@
     "testimonials",
     "logos",
     "featured_blog",
-    "caption_section"
+    "caption_section",
+    "newsletter"
   ]
 }

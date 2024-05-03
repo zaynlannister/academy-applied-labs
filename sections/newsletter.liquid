@@ -1,0 +1,72 @@
+{{ 'section-newsletter.css' | asset_url |  stylesheet_tag }}
+
+<div class="newsletter">
+    <div class="container">
+        <div class="newsletter-wrapper">
+            <div class="newsletter-info">
+                <p class="newsletter__title">{{ section.settings.title }}</p>
+                <span class="newsletter__subtitle poppins">{{ section.settings.subtitle }}</span>
+            </div>
+            <div class="newsletter-form">
+                {% form 'customer' %}
+                    {% if form.posted_successfully? %}
+                        <p class="newsletter-form_success">
+                            {% render 'icon-checkmark' %}
+                            You subscribed successfully!
+                        </p>
+                        {% else %}
+                      <input type="hidden" name="contact[tags]" value="newsletter">
+                      <input type="email"
+                        name="contact[email]"
+                        id="Email"
+                        value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+                        placeholder="Enter your email address"
+                        autocorrect="off"
+                        autocapitalize="off">
+                      <button class="{{ section.settings.button_type }}" type="submit" name="commit" id="Subscribe">
+                        <span>Subscribe</span>
+                      </button>
+                    {% endif %}
+                  {% endform %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Newsletter",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },    
+        {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Subtitle"
+        },
+        {
+            "type": "select",
+            "id": "button_type",
+            "label": "Button type",
+            "options": [
+                {
+                    "value": "primary",
+                    "label": "Primary"
+                },
+                {
+                    "value": "ordinary",
+                    "label": "Ordinary"
+                },
+                {
+                    "value": "warn",
+                    "label": "Warn"
+                }
+            ],
+            "default": "warn"
+        }
+    ]
+}
+{% endschema %}
