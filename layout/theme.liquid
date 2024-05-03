@@ -9,12 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link type="text/css" rel="stylesheet" href="{{ 'styles.css' |  asset_url }}">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <script src="{{ 'index.js' | asset_url }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer="defer"></script>
+    <script src="{{ 'swiper.js' |  asset_url }}" type="module" defer="defer"></script>
     {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
+    {{ 'swiper.css' | asset_url | stylesheet_tag }}
   </head>
   <body>
     {% section 'header' %}

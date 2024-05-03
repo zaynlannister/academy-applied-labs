@@ -1,0 +1,56 @@
+<div class="testimonials">
+    <div class="container">
+        <div class="swiper">
+            <p class="testimonials__title">{{ section.settings.title }}</p>
+            <div class="testimonials-container swiper-wrapper">
+                {% for block in section.blocks %}
+                    <div class="testimonial swiper-slide">
+                        <div class="testimonial__body poppins">{{ block.settings.body }}</div>
+                        <div class="testimonial__author">{{ block.settings.author }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev">
+                {% render 'icon-left' %}
+            </div>
+            <div class="swiper-button-next">
+                {% render 'icon-right' %}
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+{% schema %}
+{
+    "name": "Testimonials",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        }    
+    ],
+    "blocks": [
+        {
+            "name": "Testimonial",
+            "type": "text",
+            "settings": [
+                {
+                    "id": "body",
+                    "type": "richtext",
+                    "label": "Body"
+                },
+                {
+                    "id": "author",
+                    "type": "text",
+                    "label": "Author name"
+                }
+            ]
+            
+        }
+    ]
+}
+{% endschema %}

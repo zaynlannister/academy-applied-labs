@@ -62,12 +62,47 @@
         "image": "shopify:\/\/shop_images\/Rectangle_45.png",
         "image_position": "row"
       }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "text_Qh6bhr": {
+          "type": "text",
+          "settings": {
+            "body": "<p>“Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada. Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada. Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada.”<\/p>",
+            "author": "-Andrew Charlston"
+          }
+        },
+        "text_XiB4Rr": {
+          "type": "text",
+          "settings": {
+            "body": "<p>“Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada. Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada. Eu dolor at venenatis aliquam vel<\/p>",
+            "author": "-Andrew Charlston"
+          }
+        },
+        "text_3UnDrD": {
+          "type": "text",
+          "settings": {
+            "body": "<p>“Eu dolor at venenatis aliquam velit et in consequat. Nam dui pulvinar consequat eleifend malesuada. Eu dolor at venenatis aliquam velit et in conse<\/p>",
+            "author": "-Andrew Charlston"
+          }
+        }
+      },
+      "block_order": [
+        "text_Qh6bhr",
+        "text_XiB4Rr",
+        "text_3UnDrD"
+      ],
+      "settings": {
+        "title": "what people say about us"
+      }
     }
   },
   "order": [
     "hero",
     "featured_collection",
     "list_collection",
-    "two_column_section"
+    "two_column_section",
+    "testimonials"
   ]
 }
