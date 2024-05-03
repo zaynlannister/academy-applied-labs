@@ -134,6 +134,14 @@
       "settings": {
         "title": ""
       }
+    },
+    "featured_blog": {
+      "type": "featured-blog",
+      "settings": {
+        "title": "latest news",
+        "subtitle": "<p>Nunc rhoncus auctor risus tempor lacus urna, id laoreet sed. Euismod nisl pellentesque risus cursus fringilla tincidunt volutpat, non.<\/p>",
+        "blog": "news"
+      }
     }
   },
   "order": [
@@ -142,6 +150,7 @@
     "list_collection",
     "two_column_section",
     "testimonials",
-    "logos"
+    "logos",
+    "featured_blog"
   ]
 }

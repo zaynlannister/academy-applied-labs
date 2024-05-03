@@ -1,0 +1,53 @@
+<div class="featured-blog">
+    <div class="container">
+        <p class="featured-blog__header">{{ section.settings.title }}</p>
+        <div class="featured-blog__subtitle poppins">{{ section.settings.subtitle }}</div>
+        <div class="featured-blog__wrapper swiper blog-swiper">
+            <div class="swiper-wrapper">
+                {% for article in section.settings.blog.articles %}
+                    <div class="featured-blog__card swiper-slide">
+                        <div class="featured-blog__img">
+                            {% if article.image.src != blank %}
+                                <img src="{{ article.image.src | img_url: 'master' }}" alt="{{ article.image.alt }}">
+                            {% else %}
+                                {{ 'product-2' |  placeholder_svg_tag: 'featured-blog__placeholder' }}        
+                            {% endif %}
+                        </div>
+                        <p class="featured-blog__date">{{ article.created_at | date: '%B %d, %Y' }}</p>
+                        <p class="featured-blog__title">{{ article.title }}</p>
+                        <a href="{{ article.url }}">
+                            <button class="featured-blog__button">
+                                <span>Read more</span>
+                                {% render 'icon-arrow' %}
+                            </button>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="blog-swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Featured Blogs",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Subtitle"
+        },
+        {
+            "type": "blog",
+            "id": "blog",
+            "label": "Blog"
+        }
+    ]
+}
+{% endschema %}

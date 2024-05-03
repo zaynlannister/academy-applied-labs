@@ -5,11 +5,13 @@
     <div class="logos-section__wrapper">
         {% for block in section.blocks %}
             <div class="logos-section__img">
-                {% if block.settings.logo %}
-                    <img src="{{ block.settings.logo | img_url: 'master'}}" alt="{{ block.settings.logo.alt }}">
-                    {% else %}
-                        {{ 'lifestyle-2' |  placeholder_svg_tag: 'logo-section__placeholder' }}
-                {% endif %}
+                <div class="logos-section__conrainer">
+                    {% if block.settings.logo %}
+                        <img src="{{ block.settings.logo | img_url: 'master'}}" alt="{{ block.settings.logo.alt }}">
+                        {% else %}
+                            {{ 'lifestyle-2' |  placeholder_svg_tag: 'logo-section__placeholder' }}
+                    {% endif %}
+                </div>
             </div>
         {% endfor %}
     </div>

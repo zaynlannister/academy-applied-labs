@@ -1,6 +1,6 @@
 <div class="testimonials">
     <div class="container">
-        <div class="swiper">
+        <div class="swiper testimonials-swiper">
             <p class="testimonials__title">{{ section.settings.title }}</p>
             <div class="testimonials-container swiper-wrapper">
                 {% for block in section.blocks %}
@@ -11,7 +11,6 @@
                 {% endfor %}
             </div>
             
-            <div class="swiper-pagination"></div>
             <div class="swiper-button-prev">
                 {% render 'icon-left' %}
             </div>
