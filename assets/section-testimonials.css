@@ -1,0 +1,47 @@
+/* testimonials  */
+
+.testimonials {
+  position: relative;
+  padding: 20px 0 60px 0;
+}
+
+.testimonials::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  background-image: url("https://cdn.shopify.com/s/files/1/0870/2214/1744/files/Rectangle_42.png?v=1714719876");
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: -460px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.testimonials__title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.testimonial {
+  background-color: #f6f6f6;
+  padding: 10px 45px;
+  text-align: center;
+}
+
+.testimonial__author {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ef3636;
+}
+
+/* testimonial mobile  */
+
+@media (max-width: 860px) {
+  .testimonials {
+    background-color: #252525;
+  }
+}

@@ -1,0 +1,31 @@
+/* caption  */
+
+.caption-container {
+  padding: 60px 0;
+}
+
+.caption {
+  padding: 120px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.caption-title {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  color: #000;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 auto;
+  text-transform: uppercase;
+  transition: 200ms all;
+}
+
+.caption-title:hover {
+  background-color: #dbdbdb;
+}

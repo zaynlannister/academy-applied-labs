@@ -1,3 +1,5 @@
+{{ 'section-logos.css' |  asset_url |  stylesheet_tag }}
+
 <div class="logos-section">
     {% if section.settings.title != blank %}        
         <p class="logos-section__title">{{ section.settings.title }}</p>

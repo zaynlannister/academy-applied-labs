@@ -1,0 +1,86 @@
+/* featured collection  */
+
+.featured-collection {
+  background-image: url("https://cdn.shopify.com/s/files/1/0870/2214/1744/files/Rectangle_41.png?v=1714637498");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 60px 0;
+  z-index: 1;
+}
+
+.featured-collection__title {
+  font-size: 34px;
+  color: #ef3636;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.featured-collection__subtitle {
+  font-size: 15px;
+  color: #989898;
+  text-transform: capitalize;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.featured-collection .featured-collection__container {
+  display: flex;
+  justify-content: center;
+}
+
+/* collection card  */
+
+.featured-collection__card {
+  position: relative;
+  background-color: #949494;
+  width: min(390px, 100%);
+  height: 430px;
+}
+
+.featured-collection__card-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px 20px 0 0;
+}
+
+.featured-collection__card-img,
+.featured-collection__card-placeholder {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 5;
+}
+
+.featured-collection__card-title,
+.featured-collection__card-count {
+  position: relative;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 6;
+  margin: 0;
+}
+
+.featured-collection__card-title {
+  color: #ef3636;
+  font-size: 30px;
+}
+
+.featured-collection__card-count {
+  color: #fff;
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .featured-collection__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .featured-collection__card {
+    width: 100%;
+  }
+}
