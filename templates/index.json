@@ -96,6 +96,44 @@
       "settings": {
         "title": "what people say about us"
       }
+    },
+    "logos": {
+      "type": "logos-section",
+      "blocks": {
+        "image_picker_rtxUwi": {
+          "type": "image_picker",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Logo_1.png"
+          }
+        },
+        "image_picker_eBkJit": {
+          "type": "image_picker",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Logo_3.png"
+          }
+        },
+        "image_picker_8ckU4c": {
+          "type": "image_picker",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Logo_2.png"
+          }
+        },
+        "image_picker_zRfUxV": {
+          "type": "image_picker",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/logo_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_rtxUwi",
+        "image_picker_eBkJit",
+        "image_picker_8ckU4c",
+        "image_picker_zRfUxV"
+      ],
+      "settings": {
+        "title": ""
+      }
     }
   },
   "order": [
@@ -103,6 +141,7 @@
     "featured_collection",
     "list_collection",
     "two_column_section",
-    "testimonials"
+    "testimonials",
+    "logos"
   ]
 }

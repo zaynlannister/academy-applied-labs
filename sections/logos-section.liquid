@@ -1,0 +1,42 @@
+<div class="logos-section">
+    {% if section.settings.title != blank %}        
+        <p class="logos-section__title">{{ section.settings.title }}</p>
+    {% endif %}
+    <div class="logos-section__wrapper">
+        {% for block in section.blocks %}
+            <div class="logos-section__img">
+                {% if block.settings.logo %}
+                    <img src="{{ block.settings.logo | img_url: 'master'}}" alt="{{ block.settings.logo.alt }}">
+                    {% else %}
+                        {{ 'lifestyle-2' |  placeholder_svg_tag: 'logo-section__placeholder' }}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Logos",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        }    
+    ],
+    "blocks": [
+        {
+            "name": "Logo",
+            "type": "image_picker",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "logo",
+                    "label": "Choose logo"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
