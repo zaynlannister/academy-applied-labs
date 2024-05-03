@@ -1,0 +1,40 @@
+<div class="caption-container">
+    <div class="container">
+        <div class="caption">
+            <a class="caption-title" href="{{ section.settings.url }}">
+                <span>{{ section.settings.title }}</span>
+                {% render 'icon-inst' %}
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .caption {
+        background-image: url({{ section.settings.image | img_url: 'master' }});
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Caption",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "url",
+            "id": "url",
+            "label": "Media url"
+        }
+    ]
+}
+{% endschema %}

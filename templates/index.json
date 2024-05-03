@@ -142,6 +142,14 @@
         "subtitle": "<p>Nunc rhoncus auctor risus tempor lacus urna, id laoreet sed. Euismod nisl pellentesque risus cursus fringilla tincidunt volutpat, non.<\/p>",
         "blog": "news"
       }
+    },
+    "caption_section": {
+      "type": "caption-section",
+      "settings": {
+        "title": "@shopify",
+        "image": "shopify:\/\/shop_images\/close-up-of-a-pine-tree-showing-texture-of-pine-needles.jpg",
+        "url": "https:\/\/www.instagram.com\/shopify"
+      }
     }
   },
   "order": [
@@ -151,6 +159,7 @@
     "two_column_section",
     "testimonials",
     "logos",
-    "featured_blog"
+    "featured_blog",
+    "caption_section"
   ]
 }
