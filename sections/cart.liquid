@@ -1,0 +1,131 @@
+{{ 'section-cart.css' |  asset_url |  stylesheet_tag }}
+
+<div class="cart">
+    <div class="cart-background">
+        <div class="container">
+            {% render 'breadcrumb', settings: section.settings %}
+            <p class="cart__title">{{ section.settings.title }}</p>
+        </div>
+    </div>
+    <div class="cart-wrapper">
+        {% if cart.empty? %}
+            <div class="cart__empty">
+                <div class="cart__empty-text">
+                    <p class="cart__empty-text__title">Your Shopping cart is empty</p>
+                    <p class="cart__empty-text__subtitle poppins">To see which products are in cart, go to shop and click on “Add to cart” button. For now there is no products added into the cart.</p>
+                </div>
+                <div class="cart__empty-button">
+                    <a href="{{ routes.all_products_collection_url }}">
+                        <button class="ordinary">Go to shop</button>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <div class="container">
+                <form action="{{ routes.cart_url }}" method="POST" novalidate>
+                    <p class="cart-product__header">Product</p>
+                    <div class="cart-product__wrapper">
+                        <div class="cart-products">
+                            {% for product in cart.items %}
+                                <div class="cart-product">
+                                    <div class="cart-product__col-1">
+                                        <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">
+                                            {% render 'icon-close' %}
+                                        </a>
+                                        <a href="{{ product.url }}">
+                                            <img class="cart-product__img" src="{{ product.image | img_url: 'master' }}" alt="{{ product.image.alt }}">
+                                        </a>
+                                        <span class="cart-product__title">{{ product.title |  truncate: 20 }}</span>
+                                        {% comment %} <span class="cart-product__variant">({{ product.variant.title }})</span> {% endcomment %}
+                                    </div>
+                                    <div class="cart-product__col-2">
+                                        <div class="cart-product__count">
+                                            <input type="number" name="updates[]" value="{{ product.quantity }}" min="1" id="updates_{{ forloop.index }}">
+                                        </div>
+                                        <span class="cart-product__price">{{ product.price | money }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="cart-totals">
+                            <div class="cart-totals__wrapper">
+                                <p class="cart-totals__title">Cart totals</p>
+                                <div class="cart-totals__subtotal">
+                                    <p class="poppins">Subtotals:</p>
+                                    <span>{{ cart.total_price | money }}</span>
+                                </div>
+                                <div class="cart-totals_price">
+                                    <p>Totals</p>
+                                    <span>{{ cart.total_price | money }}</span>
+                                </div>
+                            </div>
+                            <div class="cart-totals__actions">
+                                <button type="submit" name="checkout" class="ordinary">Checkout</button>
+                                <a href="{{ routes.all_products_collection_url }}">
+                                    <button type="button" class="cart-totals__actions-button">Continue shopping</button>
+                                </a>
+                            </div>
+                            <div class="cart-totals__update-button">
+                                <button type="submit" name="update" class="primary">Update totals</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+    .cart-background {
+        background-image: url({{ section.settings.bg_image | img_url: 'master' }});
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Cart page",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Cart"
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Background Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_breadcrumb_nav",
+            "label": "Show breadcrumb navigation",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "breadcrumb_delimeter",
+            "info": "The icon that is between every link in the breadcrumb",
+            "label": "Breadcrumb Delimeter Icon",
+            "options": [
+            {
+                "value": "angle_right",
+                "label": "Angle Right"
+            },
+            {
+                "value": "slash",
+                "label": "Slash"
+            }
+            ],
+            "default": "angle_right"
+        },
+        {
+            "type": "color",
+            "id": "breadcrumb_text_color",
+            "label": "Breadcrumb Color",
+            "default": "#465076"
+        }
+    ]
+}
+{% endschema %}

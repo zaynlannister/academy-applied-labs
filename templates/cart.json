@@ -1,8 +1,17 @@
 {
   "sections": {
     "main": {
-      "type": "wip"
+      "type": "cart",
+      "settings": {
+        "title": "Shopping cart",
+        "bg_image": "shopify:\/\/shop_images\/Rectangle_72.png",
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "slash",
+        "breadcrumb_text_color": "#ffffff"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

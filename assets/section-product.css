@@ -81,6 +81,11 @@
   background-color: #989898;
   padding: 10px 20px;
   transition: 100ms all;
+  margin-top: 20px;
+}
+
+.product__submit-button[:disabled] {
+  cursor: not-allowed;
 }
 
 .product__submit-button:hover {
