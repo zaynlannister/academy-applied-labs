@@ -1,8 +1,15 @@
 {
   "sections": {
     "main": {
-      "type": "wip"
+      "type": "product-section",
+      "settings": {
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "slash",
+        "breadcrumb_text_color": "#989898"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

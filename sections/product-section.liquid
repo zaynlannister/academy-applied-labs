@@ -1,0 +1,97 @@
+{{ 'section-product.css' |  asset_url |  stylesheet_tag }}
+
+<div class="product-section">
+    {% assign num_photos = 6 %}
+    {% assign photos_count = product.images.size %}
+    {% assign remaining_photos = num_photos | minus: photos_count %}
+
+    <div class="container">
+        <div class="product-wrapper">
+            <div class="product-section__images">
+                {% for image in product.images %}
+                    <img class="product-section__image" src="{{ image |  img_url: 'master' }}" alt="{{ image.alt }}">
+                {% endfor %}
+
+                {% if remaining_photos > 0 %}
+                    {% for i in (1..remaining_photos) %}
+                        {{ 'product-2' |  placeholder_svg_tag: 'product-section__image' }}
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="product-section__info">
+                {% render 'breadcrumb', settings: section.settings %}
+                {% form 'product', product %}
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <p class="product__title">
+                        <span>{{ product.title }}</span>
+                        <span class="product__vendor">({{ product.vendor }})</span>
+                    </p>
+                    <p class="product__price">{{ product.selected_or_first_available_variant.price |  money }}</p>
+
+                    {% unless product.has_only_default_variant %}
+                        <div data-url="{{ product.url }}" data-section="{{ section.id }}" class="product-section__variants-wrapper">
+                            {% for option in product.options_with_values %}
+                                <label for="option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+
+                                <div class="product-variants">
+                                    {% for value in option.values %}
+                                        <div class="product-variant" value="{{ value |  escape }}">{{ value }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endunless %}
+                    <button type="submit" class="product__submit-button"
+                        {% if product.selected_or_first_available_variant == false %}
+                            disabled
+                        {% endif %}
+                    >
+                        {% if product.selected_or_first_available_variant.available == false %}
+                            Sold out
+                        {% else %}
+                            Add to cart
+                        {% endif %}
+                    </button>
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Product page",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_breadcrumb_nav",
+            "label": "Show breadcrumb navigation",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "breadcrumb_delimeter",
+            "info": "The icon that is between every link in the breadcrumb",
+            "label": "Breadcrumb Delimeter Icon",
+            "options": [
+            {
+                "value": "angle_right",
+                "label": "Angle Right"
+            },
+            {
+                "value": "slash",
+                "label": "Slash"
+            }
+            ],
+            "default": "angle_right"
+        },
+        {
+            "type": "color",
+            "id": "breadcrumb_text_color",
+            "label": "Breadcrumb Color",
+            "default": "#465076"
+        }
+    ]
+}
+{% endschema %}
