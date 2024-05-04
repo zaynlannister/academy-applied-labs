@@ -92,3 +92,26 @@
   color: #000;
   background-color: transparent;
 }
+
+@media (max-width: 625px) {
+  .product-section__images,
+  .product-section__info {
+    width: 100%;
+  }
+
+  .product-section__info {
+    padding: 0;
+  }
+
+  .product-wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .product__submit-button {
+    margin-bottom: 20px;
+  }
+
+  .product-section__image {
+    width: 100%;
+  }
+}
