@@ -1,4 +1,88 @@
-<div class="container">
-    <h2>This collection page in progress</h2>
-    <p>Collection name: {{ collection.title }}</p>
+{{ 'section-collection.css' |  asset_url |  stylesheet_tag }}
+
+<div class="collection">
+    <div class="collection-background">
+        <div class="container">
+            <div class="collection-header">
+                {%- if section.settings.show_breadcrumb_nav -%}
+                    {% render "breadcrumb", settings: section.settings %}
+                    {%- endif -%}
+                <p class="collection-header__title">Shop</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="collection-content">
+            {% paginate collection.products by 16 %}
+                <div class="collection-products" data-products-per-row="{{ section.settings.products_per_row }}">
+                    {% for product in collection.products %}
+                        {% render 'product-card', product: product %}
+                    {% else %}
+                        <p>No products in collection</p>
+                    {% endfor %}
+                </div>
+            
+                {% render 'pagination', paginate: paginate %}
+            {% endpaginate %}
+        </div>
+    </div>
 </div>
+
+<style>
+    .collection-background {
+        background-image: url({{ collection.featured_image | img_url: 'master' }});
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Collection page",
+    "settings": [
+        {
+            "type": "select",
+            "id": "products_per_row",
+            "label": "Products per row",
+            "options": [
+                {
+                    "value": "2",
+                    "label": "2 Products"
+                },
+                {
+                    "value": "4",
+                    "label": "4 Products"
+                }
+            ],
+            "default": "4"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_breadcrumb_nav",
+            "label": "Show breadcrumb navigation",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "breadcrumb_delimeter",
+            "info": "The icon that is between every link in the breadcrumb",
+            "label": "Breadcrumb Delimeter Icon",
+            "options": [
+            {
+                "value": "angle_right",
+                "label": "Angle Right"
+            },
+            {
+                "value": "slash",
+                "label": "Slash"
+            }
+            ],
+            "default": "angle_right"
+        },
+        {
+            "type": "color",
+            "id": "breadcrumb_text_color",
+            "label": "Breadcrumb Color",
+            "default": "#465076"
+        }
+    ]
+}
+{% endschema %}

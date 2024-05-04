@@ -1,8 +1,16 @@
 {
   "sections": {
     "main": {
-      "type": "collection"
+      "type": "collection",
+      "settings": {
+        "products_per_row": "4",
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#d6d6d6"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

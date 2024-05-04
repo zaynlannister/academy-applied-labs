@@ -1,0 +1,31 @@
+.collection-background {
+  padding: 60px 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.collection-header {
+  color: #ffff;
+}
+
+.collection-header__title {
+  margin: 0;
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.collection-content {
+  padding: 60px 0;
+}
+
+.collection-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  justify-content: center;
+  gap: 30px 10px;
+}
+
+.collection-content .collection-products[data-products-per-row="2"] {
+  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+}
