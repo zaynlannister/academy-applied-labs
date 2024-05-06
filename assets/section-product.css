@@ -122,6 +122,7 @@
 
 .product-section__description-content {
   display: none;
+  margin-top: 10px;
 }
 
 .product-section__description.active .product-section__description-content {
@@ -134,6 +135,25 @@
 
 .product-section__description.active .product-section__description-button svg {
   transform: rotate(180deg);
+}
+
+/* recommendtations  */
+
+.product-section__rec-wrapper {
+  margin: 70px 0 200px 0;
+}
+
+.product-section__rec {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  justify-content: center;
+  gap: 30px 10px;
+}
+
+.product-section__rec-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 @media (max-width: 625px) {

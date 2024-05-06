@@ -58,9 +58,24 @@
                         {% render 'icon-dropdown' %}
                     </button>
                     <span class="product-section__description-content poppins">
-                        {{ product.description }}
+                        {% if product.description != blank %}
+                            {{ product.description }}
+                        {% else %}
+                            Description is empty
+                        {% endif %}
                     </span>
                 </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="container">
+        <div class="product-section__rec-wrapper">
+            <p class="product-section__rec-title">{{ section.settings.title }}</p>
+            <div class="product-section__rec">
+                {% for recommended_product in product.metafields.custom.recommended_products.value %}
+                    {% render 'product-card', product: recommended_product %}
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -70,6 +85,11 @@
 {
     "name": "Product page",
     "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
         {
             "type": "checkbox",
             "id": "show_breadcrumb_nav",

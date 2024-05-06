@@ -3,6 +3,7 @@
     "main": {
       "type": "product-section",
       "settings": {
+        "title": "Recommended products",
         "show_breadcrumb_nav": true,
         "breadcrumb_delimeter": "slash",
         "breadcrumb_text_color": "#989898"
