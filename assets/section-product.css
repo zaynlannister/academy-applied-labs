@@ -14,10 +14,11 @@
 .product-section__images {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Расстояние между продуктами */
+  gap: 20px;
 }
 
 .product-section__image {
+  cursor: pointer;
   width: 270px;
   height: 230px;
   object-fit: cover;
@@ -122,7 +123,7 @@
 
 .product-section__description-content {
   display: none;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 .product-section__description.active .product-section__description-content {
@@ -154,6 +155,61 @@
   font-size: 30px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+/* image modal  */
+
+.product-section__modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.product-section__modal.active {
+  display: block;
+}
+
+.image-modal {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 20px;
+}
+
+.image-modal__img {
+  width: 810px;
+  height: 690px;
+  object-fit: cover;
+  object-fit: cover;
+}
+
+.image-modal__close {
+  position: absolute;
+  right: 35px;
+  top: 35px;
+}
+
+.image-modal__close svg {
+  color: #ef3636;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .image-modal__img {
+    width: 500px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 580px) {
+  .image-modal__img {
+    width: 300px;
+    height: 400px;
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 625px) {

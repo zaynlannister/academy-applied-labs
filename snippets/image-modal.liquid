@@ -1,0 +1,8 @@
+<div class="image-modal">
+    <div class="image-modal__wrapper">
+        <div id="modal-close-{{ id }}" class="image-modal__close">
+            {% render 'icon-close' %}
+        </div>
+        <img class="image-modal__img" src="{{ img | img_url: 'master' }}" alt="{{ img.alt }}">
+    </div>
+</div>

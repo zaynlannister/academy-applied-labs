@@ -10,7 +10,10 @@
         <div class="product-wrapper">
             <div class="product-section__images">
                 {% for image in product.images %}
-                    <img class="product-section__image" src="{{ image |  img_url: 'master' }}" alt="{{ image.alt }}">
+                    <img data-id="{{ forloop.index }}" class="product-section__image" src="{{ image |  img_url: 'master' }}" alt="{{ image.alt }}">
+                    <div id="image-modal-{{ forloop.index }}" class="product-section__modal">
+                        {% render 'image-modal', img: image, id: forloop.index %}
+                    </div>
                 {% endfor %}
 
                 {% if remaining_photos > 0 %}

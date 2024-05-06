@@ -68,3 +68,26 @@ dropdownButton.addEventListener("click", toggleDescription);
 function toggleDescription() {
   dropdownDescription.classList.toggle("active");
 }
+
+// product image modal
+const productImages = document.querySelectorAll(".product-section__image");
+
+productImages.forEach((item) => {
+  item.addEventListener("click", showModal);
+});
+
+function showModal() {
+  const imageId = this.getAttribute("data-id");
+  const modal = document.querySelector(`#image-modal-${imageId}`);
+  const closeModalButton = document.querySelector(`#modal-close-${imageId}`);
+
+  modal.classList.add("active");
+
+  closeModalButton.addEventListener("click", () => {
+    closeModal(modal);
+  });
+}
+
+function closeModal(modal) {
+  modal.classList.remove("active");
+}
