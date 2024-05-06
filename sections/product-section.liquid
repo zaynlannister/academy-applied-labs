@@ -52,6 +52,15 @@
                         {% endif %}
                     </button>
                 {% endform %}
+                <div class="product-section__description">
+                    <button class="product-section__description-button">
+                        <span>Description</span>
+                        {% render 'icon-dropdown' %}
+                    </button>
+                    <span class="product-section__description-content poppins">
+                        {{ product.description }}
+                    </span>
+                </div>
             </div>
         </div>
     </div>

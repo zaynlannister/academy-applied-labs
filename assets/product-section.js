@@ -51,3 +51,20 @@ function setListenersToAllVariants(item) {
 }
 
 setDefaultVariant();
+
+// description dropdown
+const dropdownButton = document.querySelector(
+  ".product-section__description-button"
+);
+const dropdownDescription = document.querySelector(
+  ".product-section__description"
+);
+const dropdownIcon = document.querySelector(
+  ".product-section__description-button svg"
+);
+
+dropdownButton.addEventListener("click", toggleDescription);
+
+function toggleDescription() {
+  dropdownDescription.classList.toggle("active");
+}
