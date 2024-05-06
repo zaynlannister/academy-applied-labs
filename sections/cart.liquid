@@ -29,7 +29,7 @@
                             {% for product in cart.items %}
                                 <div class="cart-product">
                                     <div class="cart-product__col-1">
-                                        <span class="cart-product__variant">{{ product.variant }}</span>
+                                        <span class="cart-product__variant">v: {{ product.variant.title }}</span>
                                         <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0">
                                             {% render 'icon-close' %}
                                         </a>
@@ -37,7 +37,6 @@
                                             <img class="cart-product__img" src="{{ product.image | img_url: 'master' }}" alt="{{ product.image.alt }}">
                                         </a>
                                         <span class="cart-product__title">{{ product.title |  truncate: 20 }}</span>
-                                        {% comment %} <span class="cart-product__variant">({{ product.variant.title }})</span> {% endcomment %}
                                     </div>
                                     <div class="cart-product__col-2">
                                         <div class="cart-product__count">
