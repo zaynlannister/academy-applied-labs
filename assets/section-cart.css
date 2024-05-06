@@ -70,6 +70,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
 }
 
 .cart-product__col-1 a {
@@ -85,6 +86,15 @@
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.cart-product__variant {
+  position: absolute;
+  left: 165px;
+  top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #989898;
 }
 
 .cart-product__price {
@@ -124,12 +134,6 @@
   font-weight: bold;
   margin: 0 0 10px 0;
   text-transform: uppercase;
-}
-
-.cart-product__variant {
-  font-size: 20px;
-  font-weight: bold;
-  color: #989898;
 }
 
 .cart-product__count input {

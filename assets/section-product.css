@@ -67,6 +67,11 @@
   transition: 100ms all;
 }
 
+.product-variant.active {
+  background-color: #ef3636;
+  color: #fff;
+}
+
 .product-variant:hover {
   background-color: #ef3636;
   color: #fff;
