@@ -64,8 +64,22 @@
                     {% endif %}
                 {% endfor %}
             </div>
+
+            <div class="header-search">
+                <form action="{{ routes.search_url }}" method="get">
+                    <div class="header-search__wrapper">
+                        <input type="search" name="q" placeholder="Search" class="header-search__input">
+                        <button class="header-search__close-button" type="button">
+                            {% render 'icon-close' %}
+                        </button>
+                    </div>
+                </form>
+            </div>
         
             <div class="header__links">
+                <span class="header__links-search">
+                    {% render 'icon-search' %}
+                </span>
                 <a class="header__links-shopping" href="{{ routes.cart_url }}">
                     {% render 'icon-shopping' %}
                 </a>

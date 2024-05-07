@@ -1,12 +1,9 @@
 {
   "sections": {
     "main": {
-      "type": "wip",
-      "settings": {
-      }
+      "type": "search",
+      "settings": {}
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }

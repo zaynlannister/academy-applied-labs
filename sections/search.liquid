@@ -1,0 +1,61 @@
+<div class="search">
+    <div class="container">
+        {% paginate search.results by 10 %}
+            <p class="search__title">{{ section.settings.title }}</p>
+            {% if search.performed %}
+                {% if search.results.size > 0 %}
+                    <div class="search-products__wrapper">
+                        {% for item in search.results %}
+                            {% case item.object_type %}
+                                {% when 'product' %}
+                                    {% render 'product-card', product: item %}
+                                {% else %}
+                            {% endcase %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="search__not-found">
+                        <span>Sorry, we could not find search term: {{ search.terms }}</span>
+                    </div>
+                {% endif %}
+            {% endif %}
+            
+            {% render 'pagination', paginate: paginate %}
+        {% endpaginate %}
+    </div>
+</div>
+
+<style>
+    .search-products__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        justify-content: center;
+        gap: 30px 10px;
+        margin-bottom: 100px;
+    }
+
+    .search__title {
+        font-size: 25px;
+        text-transform: capitalize;
+    }
+
+    .search__not-found {
+        text-align: center;
+        font-size: 25px;
+        margin: 160px 0;
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Search page",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Search results"
+        }    
+    ]
+}
+{% endschema %}

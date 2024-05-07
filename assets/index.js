@@ -31,3 +31,21 @@ function toggleMenuDropDown() {
     dropdownContainer.classList.toggle("active");
   }
 }
+
+// search bar
+const searchButton = document.querySelector(".header__links-search");
+const searchBar = document.querySelector(".header-search");
+const searchBarCloseButton = document.querySelector(
+  ".header-search__close-button"
+);
+
+searchButton.addEventListener("click", openSearchBar);
+searchBarCloseButton.addEventListener("click", closeSearchBar);
+
+function openSearchBar() {
+  searchBar.classList.add("active");
+}
+
+function closeSearchBar() {
+  searchBar.classList.remove("active");
+}
