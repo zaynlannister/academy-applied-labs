@@ -1,14 +1,18 @@
+{{ 'section-search.css' |  asset_url |  stylesheet_tag }}
+
 <div class="search">
     <div class="container">
         {% paginate search.results by 10 %}
             <p class="search__title">{{ section.settings.title }}</p>
             {% if search.performed %}
                 {% if search.results.size > 0 %}
-                    <div class="search-products__wrapper">
+                    <div class="search-items__wrapper">
                         {% for item in search.results %}
                             {% case item.object_type %}
                                 {% when 'product' %}
                                     {% render 'product-card', product: item %}
+                                {% when 'article' %}
+                                    {% render 'blog-card', article: item %}
                                 {% else %}
                             {% endcase %}
                         {% endfor %}
@@ -24,27 +28,6 @@
         {% endpaginate %}
     </div>
 </div>
-
-<style>
-    .search-products__wrapper {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        justify-content: center;
-        gap: 30px 10px;
-        margin-bottom: 100px;
-    }
-
-    .search__title {
-        font-size: 25px;
-        text-transform: capitalize;
-    }
-
-    .search__not-found {
-        text-align: center;
-        font-size: 25px;
-        margin: 160px 0;
-    }
-</style>
 
 {% schema %}
 {

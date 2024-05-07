@@ -1,0 +1,18 @@
+.search-items__wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 30px 10px;
+  margin-bottom: 100px;
+}
+
+.search__title {
+  font-size: 25px;
+  text-transform: capitalize;
+}
+
+.search__not-found {
+  text-align: center;
+  font-size: 25px;
+  margin: 160px 0;
+}
