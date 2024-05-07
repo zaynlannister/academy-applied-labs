@@ -71,6 +71,7 @@ function toggleDescription() {
 
 // product image modal
 const productImages = document.querySelectorAll(".product-section__image");
+const productModals = document.querySelectorAll(".product-section__modal");
 
 productImages.forEach((item) => {
   item.addEventListener("click", showModal);
@@ -81,6 +82,7 @@ function showModal() {
   const modal = document.querySelector(`#image-modal-${imageId}`);
   const closeModalButton = document.querySelector(`#modal-close-${imageId}`);
 
+  closeAllModals();
   modal.classList.add("active");
 
   closeModalButton.addEventListener("click", () => {
@@ -90,4 +92,10 @@ function showModal() {
 
 function closeModal(modal) {
   modal.classList.remove("active");
+}
+
+function closeAllModals() {
+  productModals.forEach((item) => {
+    item.classList.remove("active");
+  });
 }
