@@ -26,6 +26,15 @@
   font-size: 12px;
 }
 
+.footer__info-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__info-links svg:hover path {
+  fill: #ef3636;
+}
+
 .footer__contact,
 .footer__nav-title,
 .footer__nav-link {
