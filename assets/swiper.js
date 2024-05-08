@@ -28,3 +28,15 @@ const blogSwiper = new Swiper(".blog-swiper", {
     },
   },
 });
+
+const productSwiper = new Swiper(".product-section__swiper", {
+  slidesPerView: 1,
+  navigation: {
+    nextEl: ".product-button-next",
+    prevEl: ".product-button-prev",
+  },
+  pagination: {
+    el: ".product-swiper-pagination",
+    clickable: true,
+  },
+});

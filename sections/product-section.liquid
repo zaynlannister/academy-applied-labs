@@ -23,6 +23,19 @@
                 {% endif %}
             </div>
 
+            <div class="swiper product-section__swiper">
+                <div class="swiper-wrapper">
+                    {% for image in product.images %}
+                        <div class="swiper-slide">
+                            <img class="product-section__image-mobile" src="{{ image |  img_url: 'master' }}" alt="{{ image.alt }}">
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="product-button-next"></div>
+                <div class="product-button-prev"></div>
+                <div class="product-swiper-pagination"></div>
+            </div>
+
             <div class="product-section__info">
                 {% render 'breadcrumb', settings: section.settings %}
                 {% form 'product', product %}
