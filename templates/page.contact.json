@@ -1,8 +1,22 @@
 {
   "sections": {
     "main": {
-      "type": "wip"
+      "type": "contact-section",
+      "settings": {
+        "title": "Contact us",
+        "address": "445 MLK Street, South Dakota",
+        "phone": "(808) 333-0888",
+        "email": "miralou.conacts@example.com",
+        "form_title": "get in touch",
+        "form_subtitle": "<p>Aliquet a scelerisque enim, arcu rutrum adipiscing fringilla risus. Eget fringilla curabitur sed vulputate pretium, habitasse amet. Elementum odio sagittis, interdum elit ipsum. Volutpat erat ac eu aliquam turpis. Ullamcorper consequat donec euismod mi pulvinar.<\/p>",
+        "bg_image": "shopify:\/\/shop_images\/contact.png",
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#ffffff"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

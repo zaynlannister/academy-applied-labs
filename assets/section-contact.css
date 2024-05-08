@@ -1,0 +1,128 @@
+.contact-header {
+  padding: 40px 0;
+}
+
+.contact-title {
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.contact-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-info {
+  background-image: url("https://cdn.shopify.com/s/files/1/0870/2214/1744/files/Rectangle_41.png?v=1714637498");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 105px 0;
+}
+
+.contact-info__content {
+  color: #fff;
+  background-color: #252525;
+  padding: 20px 40px;
+}
+
+.contact-info__content-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Poppins;
+}
+
+.contact-info__content-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.contact-info__location {
+  width: 100%;
+  background-color: #707070;
+}
+
+.contact-info__content-1,
+.contact-info__content-2 {
+  padding-bottom: 10px;
+}
+
+.contact-info__content-3 {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.contact-info__content-3 svg:hover {
+  cursor: pointer;
+}
+
+.contact-info__content-3 svg path {
+  fill: #ef3636;
+}
+
+.contact-info__content-3 svg:hover path {
+  fill: #fff;
+}
+
+.contact-form {
+  padding: 40px 0;
+  background-color: #f6f6f6;
+}
+
+.contact-form__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.contact-form__container,
+.contact-form__text {
+  flex: 1;
+}
+
+.contact-form__text-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 10px 0;
+  color: #ef3636;
+}
+
+.contact-form__email,
+.contact-form__name,
+.contact-form__body {
+  width: 100%;
+  outline: none;
+  border: 1px solid #ef3636;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+}
+
+.contact-form__body {
+  font-family: "Poppins";
+  height: 150px;
+}
+
+@media (max-width: 780px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+
+  .contact-info__location iframe {
+    height: 400px;
+  }
+}
+
+@media (max-width: 680px) {
+  .contact-form__wrapper {
+    flex-direction: column;
+  }
+}

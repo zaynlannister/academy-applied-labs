@@ -8,9 +8,18 @@
         "breadcrumb_delimeter": "angle_right",
         "breadcrumb_text_color": "#ffffff"
       }
+    },
+    "newsletter_FmAXAG": {
+      "type": "newsletter",
+      "settings": {
+        "title": "OUR NEWSSELLER",
+        "subtitle": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/p>",
+        "button_type": "warn"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "newsletter_FmAXAG"
   ]
 }
