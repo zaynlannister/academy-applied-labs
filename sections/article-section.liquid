@@ -1,0 +1,112 @@
+{{ 'section-article.css' |  asset_url |  stylesheet_tag }}
+
+<article class="article">
+    <div class="article-header">
+        <div class="container">
+            {% render 'breadcrumb', settings: section.settings %}
+            <p class="article-title">{{ article.title }}</p>
+        </div>
+    </div>
+    <div class="article-content">
+        <div class="container">
+            <div>
+                <img class="article-content__image" src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}">
+                <div class="article-content__info poppins">
+                    <p class="article-content__date">{{ article.published_at | date: "%b %d, %y" }}</p>
+                    <p class="article-content__author">• by {{ article.author }}</p>
+                </div>
+                <div class="aticle-content__description poppins">
+                    {{ article.content }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="article-comments">
+        <div class="container">
+            <div class="article-comments__data">
+                {% if article.comments_count > 0 %}
+                    <p class="article-comments__data-title">See what people are saying ({{ article.comments_count }})</p>
+                    {% paginate article.comments by 5 %}
+                        {% for comment in article.comments %}
+                            <div class="article-comments__card">  
+                                <span class="article-comments__card-author">{{ comment.author }}</span>
+                                <span class="article-comments__card-date">{{ comment.created_at | date: format: 'default' }}</span>
+                                <div class="article-comments__card-content poppins">{{ comment.content }}</div>
+                            </div>
+                        {% endfor %}
+                        {% render 'pagination', paginate: paginate %}
+                    {% endpaginate %}
+                {% else %}
+                    <div class="article-comments__not-found">
+                        <P>There are no comments in this article!</P>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="article-comments__form">
+                <p class="article-comments__form-title">Write a comment</p>
+                {% form 'new_comment', article %}
+                    <div class="article-comments__input-author">
+                        <input type="text" placeholder="Name" name="comment[author]" required>
+                    </div>
+                    <div class="article-comments__input-email">
+                        <input type="email" placeholder="Email" name="comment[email]" required>
+                    </div>
+                    <div class="article-comments__input-comment">
+                        <textarea name="comment[body]" id="comment-body" placeholder="Comment..." required></textarea>
+                    </div>
+                    <div class="article-comments__submit">
+                        <button class="ordinary">Submit</button>
+                    </div>
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</article>
+
+<style>
+    .article-header {
+        background-image: url({{ section.settings.bg_image | img_url: 'master' }});
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Article page",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Background Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_breadcrumb_nav",
+            "label": "Show breadcrumb navigation",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "breadcrumb_delimeter",
+            "info": "The icon that is between every link in the breadcrumb",
+            "label": "Breadcrumb Delimeter Icon",
+            "options": [
+            {
+                "value": "angle_right",
+                "label": "Angle Right"
+            },
+            {
+                "value": "slash",
+                "label": "Slash"
+            }
+            ],
+            "default": "angle_right"
+        },
+        {
+            "type": "color",
+            "id": "breadcrumb_text_color",
+            "label": "Breadcrumb Color",
+            "default": "#465076"
+        }
+    ]
+}
+{% endschema %}

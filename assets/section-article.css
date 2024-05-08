@@ -1,0 +1,101 @@
+.article-header {
+  background-size: cover;
+  padding: 40px 0;
+}
+
+.article-title {
+  font-size: 50px;
+  color: #ffff;
+  margin: 10px 0;
+}
+
+.article-content {
+  background-image: url("https://cdn.shopify.com/s/files/1/0870/2214/1744/files/Rectangle_41.png?v=1714637498");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+}
+
+.article-content__image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.article-content__info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.article-content__date {
+  color: #ef3636;
+}
+
+.article-content__author {
+  color: #989898;
+}
+
+/* comments  */
+
+.article-comments__not-found {
+  text-align: center;
+  font-size: 22px;
+  border: 1px solid #805a15;
+  background-color: #ffcfa4;
+  padding: 20px 0;
+}
+
+.article-comments__form {
+  width: 700px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.article-comments__form-title {
+  font-size: 30px;
+  margin: 10px 0;
+  text-transform: uppercase;
+  color: #ef3636;
+  font-weight: bold;
+}
+
+.article-comments__input-author input,
+.article-comments__input-email input,
+.article-comments__input-comment textarea {
+  width: 100%;
+  border: 1px solid #ef3636;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.article-comments__input-comment textarea {
+  resize: none;
+  outline: none;
+  font-family: "Poppins";
+}
+
+.article-comments__data-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.article-comments__card {
+  background-color: #f6f6f6;
+  padding: 30px 50px;
+  margin: 10px 0;
+}
+
+.article-comments__card-author {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.article-comments__card-date {
+  font-size: 14px;
+  color: #656565;
+}

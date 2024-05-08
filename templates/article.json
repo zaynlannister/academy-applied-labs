@@ -1,8 +1,16 @@
 {
   "sections": {
     "main": {
-      "type": "wip"
+      "type": "article-section",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/Rectangle_72.png",
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#ffffff"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
