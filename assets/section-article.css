@@ -99,3 +99,9 @@
   font-size: 14px;
   color: #656565;
 }
+
+@media (max-width: 785px) {
+  .article-comments__form {
+    width: 100%;
+  }
+}
