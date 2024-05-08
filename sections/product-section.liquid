@@ -47,11 +47,11 @@
                     <p class="product__price">{{ product.selected_or_first_available_variant.price |  money }}</p>
 
                     {% unless product.has_only_default_variant %}
-                        <div id="dataset-url" data-url="{{ product.url }}" data-section="{{ section.id }}" class="product-section__variants-wrapper">
+                        <div id="dataset-url" data-url="{{ product.url }}" class="product-section__variants-wrapper">
                             <label for="{{ forloop.index0 }}">Size</label>
                             <div id="{{ forloop.index0 }}" class="product-variants">
                                 {% for variant in product.variants %}
-                                    <div data-id="{{ variant.id }}" class="product-variant">{{ variant.title }}</div>
+                                    <div data-id="{{ variant.id }}" data-price="{{ variant.price }}" class="product-variant">{{ variant.title }}</div>
                                 {% endfor %}
                             </div>
                         </div>

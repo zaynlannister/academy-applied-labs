@@ -1,5 +1,6 @@
 const productFormInput = document.querySelector("#product-form-input");
 const datasetUrl = document.querySelector("#dataset-url");
+const productPrice = document.querySelector(".product__price");
 
 const productVariants = document.querySelectorAll(".product-variant");
 
@@ -20,18 +21,35 @@ function setDefaultVariant() {
       setListenersToAllVariants(item);
 
       if (currentVariantId == variantId) {
-        setVariantClass(item);
+        setActiveVariant(item);
       }
     });
   }
 }
 
 // setting class active on choosen variant
-function setVariantClass(activeVariant) {
+function setActiveVariant(activeVariant) {
   productVariants.forEach((item) => {
     item.classList.remove("active");
   });
+
+  updatePrice(activeVariant);
   activeVariant.classList.add("active");
+}
+
+function priceFormatter(priceInCents) {
+  let priceInDollars = priceInCents / 100;
+  let formattedPrice = priceInDollars.toFixed(2);
+
+  formattedPrice = "$" + formattedPrice;
+
+  return formattedPrice;
+}
+
+function updatePrice(activeVariant) {
+  const newPrice = activeVariant.getAttribute("data-price");
+
+  productPrice.innerHTML = priceFormatter(newPrice);
 }
 
 // url replacing function
@@ -45,7 +63,7 @@ function setListenersToAllVariants(item) {
     const itemId = item.getAttribute("data-id");
     urlReplace(currentUrl, itemId);
 
-    setVariantClass(item);
+    setActiveVariant(item);
     productFormInput.value = itemId;
   });
 }
