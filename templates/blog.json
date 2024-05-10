@@ -1,8 +1,17 @@
 {
   "sections": {
     "main": {
-      "type": "wip"
+      "type": "blog-section",
+      "settings": {
+        "title": "Blog",
+        "image_bg": "shopify:\/\/shop_images\/contact.png",
+        "show_breadcrumb_nav": true,
+        "breadcrumb_delimeter": "angle_right",
+        "breadcrumb_text_color": "#ffffff"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

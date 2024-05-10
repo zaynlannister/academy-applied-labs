@@ -1,0 +1,98 @@
+{{ 'section-blog.css' |  asset_url |  stylesheet_tag }}
+
+<div class="blog">
+    <div class="blog-wrapper">
+        <div class="container">
+            {% render 'breadcrumb', settings: section.settings %}
+            <p class="blog-title">{{ section.settings.title }}</p>
+        </div>
+    </div>
+    <div class="blog-container">
+        <div class="container">
+            {% paginate blog.articles by 3 %}
+                {% for article in blog.articles %}
+                    <div class="blog-article">
+                        <div class="blog-article__image-wrapper">
+                            {% if article.image != blank %}
+                                <img class="blog-article__img" src="{{ article.image |  img_url: 'master' }}" alt="{{ article.image.alt }}">
+                            {% else %}
+                                {{ 'collection-2' |  placeholder_svg_tag: 'blog-article__img' }}
+                            {% endif %}
+                        </div>
+                        <div class="blog-article__date poppins">
+                            <span class="blog-article__date-created">{{ article.created_at | date: '%B %d, %Y' }}</span>
+                            <span class="blog-article__date-author">• by {{ article.author }}</span>
+                        </div>
+                        <div class="blog-article__title">
+                            <span>{{ article.title }}</span>
+                        </div>
+                        <div class="blog-article__content poppins">
+                            {{ article.content |  truncatewords: 40 }}
+                        </div>
+                        <a href="{{ article.url }}">
+                            <button class="blog-article__button">
+                                <span>Read more</span>
+                                {% render 'icon-arrow' %}
+                            </button>
+                        </a>
+                    </div>
+                {% endfor %}
+
+                {% render 'pagination', paginate: paginate %}
+            {% endpaginate %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .blog-wrapper {
+        background-image: url({{ section.settings.image_bg | img_url: 'master' }});
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Blog page",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_bg",
+            "label": "Background image"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_breadcrumb_nav",
+            "label": "Show breadcrumb navigation",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "breadcrumb_delimeter",
+            "info": "The icon that is between every link in the breadcrumb",
+            "label": "Breadcrumb Delimeter Icon",
+            "options": [
+            {
+                "value": "angle_right",
+                "label": "Angle Right"
+            },
+            {
+                "value": "slash",
+                "label": "Slash"
+            }
+            ],
+            "default": "angle_right"
+        },
+        {
+            "type": "color",
+            "id": "breadcrumb_text_color",
+            "label": "Breadcrumb Color",
+            "default": "#465076"
+        }
+    ]
+}
+{% endschema %}
