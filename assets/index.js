@@ -22,14 +22,17 @@ function closeMobileMenu() {
 
 function toggleMenuDropDown() {
   const linkId = this.getAttribute("linkId");
-  const dropdownContainer = document.querySelector(
+  const dropdownContainers = document.querySelectorAll(
     ".mobile-menu__link-container"
   );
-  const dropDownId = dropdownContainer.getAttribute("linkId");
 
-  if (linkId == dropDownId) {
-    dropdownContainer.classList.toggle("active");
-  }
+  dropdownContainers.forEach((item) => {
+    const dropdownId = item.getAttribute("linkId");
+
+    if (linkId == dropdownId) {
+      item.classList.toggle("active");
+    }
+  });
 }
 
 // search bar
