@@ -1,6 +1,7 @@
 {{ 'cart-drawer.css' |  asset_url |  stylesheet_tag }}
 
 <div class="overlay"></div>
+
 <div class="cart-drawer">
     <div class="cart-drawer__header">
         <p>Your cart</p>
@@ -49,12 +50,11 @@
                 </div>
                 <button type="submit" name="checkout" class="warn">Checkout</button>
             </div>
-
             
             <div class="cart-drawer__upsells">
-                <p class="cart-drawer__upsells-title">You may also like</p>
+                <p class="cart-drawer__upsells-title">You may also like {{ settings.upsells_products | size }}</p>
                 <div class="cart-drawer__upsells-wrapper swiper upsells upsells-section__swiper">
-                    <div class="swiper-wrapper">
+                    <div class="cart-drawer__swiper-wrapper swiper-wrapper">
                         {% for product in settings.upsells_products %}
                             <div class="swiper-slide">
                                 {% render 'product-card', product: product %}
@@ -73,6 +73,10 @@
     {% endform %}
     {% endif %}
 </div>
+
+<script>
+    const productsLength =  '{{ settings.upsells_products }}'
+</script>
 
 {% schema %}
 {

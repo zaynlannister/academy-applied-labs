@@ -20,9 +20,18 @@ async function updateCartDrawer() {
   const html = document.createElement("div");
   html.innerHTML = text;
 
-  const newBox = html.querySelector(".cart-drawer").innerHTML;
+  const newCartProductsWrapper = html.querySelector(
+    ".cart-drawer .cart-drawer__product-wrapper"
+  ).innerHTML;
+  const newCheckout = html.querySelector(
+    ".cart-drawer .cart-drawer__checkout"
+  ).innerHTML;
 
-  document.querySelector(".cart-drawer").innerHTML = newBox;
+  document.querySelector(
+    ".cart-drawer .cart-drawer__product-wrapper"
+  ).innerHTML = newCartProductsWrapper;
+  document.querySelector(".cart-drawer .cart-drawer__checkout").innerHTML =
+    newCheckout;
 
   addCartDrawerListeners();
 }

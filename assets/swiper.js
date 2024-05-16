@@ -44,6 +44,7 @@ const productSwiper = new Swiper(".product-section__swiper", {
 const upsellsSwiper = new Swiper(".upsells-section__swiper", {
   slidesPerView: 2,
   spaceBetween: 30,
+  enabled: productsLength.length > 2 ? true : false,
   navigation: {
     nextEl: ".upsells-button-next",
     prevEl: ".upsells-button-prev",
