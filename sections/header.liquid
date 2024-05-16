@@ -83,10 +83,17 @@
                 {% if settings.cart_type == 'default' %}
                     <a class="header__links-shopping" href="{{ routes.cart_url }}">
                         {% render 'icon-shopping' %}
+                        {% if cart.item_count > 0 %}
+                            <span class="cart-count">{{ cart.item_count }}</span>
+                        {% endif %}
+                        
                     </a>
                 {% else %}
                     <a class="header__links-drawer">
                         {% render 'icon-shopping' %}
+                        {% if cart.item_count > 0 %}
+                            <span class="cart-count">{{ cart.item_count }}</span>
+                        {% endif %}
                     </a>
                 {% endif %}
                 <div class="header__burger-menu">

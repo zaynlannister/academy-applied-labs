@@ -63,6 +63,11 @@
   cursor: pointer;
 }
 
+.header__links-drawer,
+.header__links-shopping {
+  position: relative;
+}
+
 .header__links-shopping,
 .header__links-search,
 .header__links-drawer {
@@ -73,6 +78,18 @@
 .header__links-search:hover,
 .header__links-drawer:hover {
   color: #5e5e5e;
+}
+
+.cart-count {
+  position: absolute;
+  top: -7px;
+  right: -5px;
+  font-size: 10px;
+  font-family: "Poppins";
+  background-color: #ef3636;
+  color: #fff;
+  padding: 1px 4px;
+  border-radius: 50%;
 }
 
 /* header search  */

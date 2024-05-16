@@ -12,7 +12,7 @@ function closeDrawer() {
   cartOverlay.classList.remove("active");
 }
 
-// quantity update
+// cart update
 
 async function updateCartDrawer() {
   const res = await fetch("/?section_id=cart-drawer");
@@ -27,7 +27,12 @@ async function updateCartDrawer() {
   addCartDrawerListeners();
 }
 
+function updateCartIconCount(count) {
+  document.querySelector(".cart-count").textContent = count;
+}
+
 function addCartDrawerListeners() {
+  // quantity update
   const cartIcon = document.querySelector(".header__links-drawer");
   const cartCloseIcon = document.querySelector(".cart-drawer__close");
 
@@ -57,7 +62,9 @@ function addCartDrawerListeners() {
         body: JSON.stringify({ updates: { [key]: newQuantity } }),
       });
 
-      const json = await res.json();
+      const cart = await res.json();
+
+      updateCartIconCount(cart.item_count);
 
       // update cart
       updateCartDrawer();
@@ -72,13 +79,16 @@ function addCartDrawerListeners() {
       const key =
         item.parentElement.parentElement.getAttribute("data-line-item-key");
 
-      await fetch("/cart/update.js", {
+      const res = await fetch("/cart/update.js", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ updates: { [key]: 0 } }),
       });
+
+      const cart = await res.json();
+      updateCartIconCount(cart.item_count);
 
       updateCartDrawer();
     });
@@ -101,6 +111,11 @@ document.querySelectorAll('form[action="/cart/add"]').forEach((form) => {
       method: "post",
       body: new FormData(form),
     });
+
+    // update cart count
+    const res = await fetch("/cart.js");
+    const cart = await res.json();
+    updateCartIconCount(cart.item_count);
 
     const cartType = localStorage.getItem("cart_type");
 
