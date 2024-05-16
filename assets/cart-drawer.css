@@ -122,11 +122,12 @@
   border-right: 1px solid #e7e7e7;
 }
 
-.cart-drawer__remove a {
+.cart-drawer__remove svg {
   color: #000;
 }
 
-.cart-drawer__remove a:hover {
+.cart-drawer__remove svg:hover {
+  cursor: pointer;
   color: #ef3636;
 }
 

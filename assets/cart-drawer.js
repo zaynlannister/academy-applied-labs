@@ -64,6 +64,26 @@ function addCartDrawerListeners() {
     });
   });
 
+  // remove product
+  const removeButton = document.querySelectorAll(".cart-drawer__remove svg");
+
+  removeButton.forEach((item) => {
+    item.addEventListener("click", async () => {
+      const key =
+        item.parentElement.parentElement.getAttribute("data-line-item-key");
+
+      await fetch("/cart/update.js", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ updates: { [key]: 0 } }),
+      });
+
+      updateCartDrawer();
+    });
+  });
+
   cartIcon.addEventListener("click", openDrawer);
   cartOverlay.addEventListener("click", closeDrawer);
   cartCloseIcon.addEventListener("click", closeDrawer);
