@@ -80,9 +80,15 @@
                 <span class="header__links-search">
                     {% render 'icon-search' %}
                 </span>
-                <a class="header__links-shopping" href="{{ routes.cart_url }}">
-                    {% render 'icon-shopping' %}
-                </a>
+                {% if settings.cart_type == 'default' %}
+                    <a class="header__links-shopping" href="{{ routes.cart_url }}">
+                        {% render 'icon-shopping' %}
+                    </a>
+                {% else %}
+                    <a class="header__links-drawer">
+                        {% render 'icon-shopping' %}
+                    </a>
+                {% endif %}
                 <div class="header__burger-menu">
                     {% render 'icon-burger' %}
                 </div>

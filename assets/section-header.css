@@ -59,13 +59,19 @@
   cursor: pointer;
 }
 
+.header__links-drawer {
+  cursor: pointer;
+}
+
 .header__links-shopping,
-.header__links-search {
+.header__links-search,
+.header__links-drawer {
   color: #000;
 }
 
 .header__links-shopping:hover,
-.header__links-search:hover {
+.header__links-search:hover,
+.header__links-drawer:hover {
   color: #5e5e5e;
 }
 

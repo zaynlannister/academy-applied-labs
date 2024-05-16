@@ -1,6 +1,7 @@
 {
   "current": {
     "logo": "shopify:\/\/shop_images\/Miralou.svg",
+    "cart_type": "drawer",
     "sections": {
       "header": {
         "type": "header",
@@ -45,6 +46,11 @@
         "settings": {
           "logo": "shopify:\/\/shop_images\/MiralouWhite.svg",
           "copyright": "2025"
+        }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {
         }
       }
     },

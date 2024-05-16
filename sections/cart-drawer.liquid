@@ -1,0 +1,65 @@
+{{ 'cart-drawer.css' |  asset_url |  stylesheet_tag }}
+<script src="{{ 'cart-drawer.js' |  asset_url }}" defer="defer"></script>
+
+<div class="overlay"></div>
+<div class="cart-drawer">
+    <div class="cart-drawer__header">
+        <p>Your cart</p>
+        <div class="cart-drawer__close">
+            {% render 'icon-remove' %}
+        </div>
+    </div>
+    {% if cart.empty? %}
+        <p class="cart-drawer-empty poppins">Your cart is empty</p>
+    {% else %}
+    {% form 'cart', cart %}
+        <div class="cart-drawer__container">
+            <div class="cart-drawer__product-wrapper">
+                {% for item in cart.items %}
+                    <div class="cart-drawer__product">
+                        <img src="{{ item.image | img_url: '100x' }}" alt="{{ item.title }}">
+                        <div class="cart-drawer__info">
+                            <div class="cart-drawer__title">
+                                <a href="{{ item.url }}">
+                                    {{ item.product.title }}
+                                </a>
+                            </div>
+                            <div class="cart-drawer__variant">{{ item.variant.title }}</div>
+                            <div class="cart-drawer__price">{{ item.final_line_price | money }}</div>
+                        </div>
+                        <div class="cart-drawer__quantity">
+                            <button type="button" class="cart-drawer__quantity-minus">
+                                {% render 'icon-minus' %}
+                            </button>
+                            <input readonly name="quantity" value="{{ item.quantity }}">
+                            <button type="button" class="cart-drawer__quantity-plus">
+                                {% render 'icon-plus' %}
+                            </button>
+                        </div>
+                        <div class="cart-drawer__remove">
+                            <a href="{{ item.url_to_remove }}">
+                                {% render 'icon-remove' %}
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <div class="cart-drawer__checkout">
+                <div class="cart-drawer__total">
+                    <p>Total</p>
+                    <p>{{ cart.total_price | money }}</p>
+                </div>
+                <button type="submit" name="checkout" class="warn">Checkout</button>
+            </div>
+        </div>
+    {% endform %}
+    {% endif %}
+</div>
+
+{% schema %}
+{
+    "name": "Cart drawer",
+    "settings": []
+}
+{% endschema %}

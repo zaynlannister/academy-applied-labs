@@ -33,5 +33,26 @@
         "default": "#fff"
       }
     ]
+  },
+  {
+    "name": "Cart type",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Choose cart type",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          }
+        ],
+        "default": "default"
+      }
+    ]
   }
 ]
