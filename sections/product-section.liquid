@@ -56,6 +56,7 @@
                             </div>
                         </div>
                     {% endunless %}
+
                     <button type="submit" class="product__submit-button"
                         {% if product.selected_or_first_available_variant.available == false %}
                             disabled
@@ -96,6 +97,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    localStorage.setItem("cart_type", '{{ settings.cart_type }}');
+</script>
 
 {% schema %}
 {

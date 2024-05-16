@@ -90,3 +90,23 @@ function addCartDrawerListeners() {
 }
 
 addCartDrawerListeners();
+
+// add to cart using ajax
+
+document.querySelectorAll('form[action="/cart/add"]').forEach((form) => {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    await fetch("/cart/add", {
+      method: "post",
+      body: new FormData(form),
+    });
+
+    const cartType = localStorage.getItem("cart_type");
+
+    if (cartType == "drawer") {
+      updateCartDrawer();
+      openDrawer();
+    }
+  });
+});

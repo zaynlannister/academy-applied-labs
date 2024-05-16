@@ -78,7 +78,8 @@
   color: #fff;
 }
 
-.product__submit-button {
+.product__submit-button,
+.product__submit-button__ajax {
   width: 100%;
   color: #fff;
   font-weight: bold;
@@ -94,7 +95,8 @@
   cursor: not-allowed;
 }
 
-.product__submit-button:hover {
+.product__submit-button:hover,
+.product__submit-button__ajax:hover {
   color: #000;
   background-color: transparent;
 }
@@ -250,7 +252,8 @@
     flex-direction: column-reverse;
   }
 
-  .product__submit-button {
+  .product__submit-button,
+  .product__submit-button__ajax {
     margin-bottom: 20px;
   }
 
