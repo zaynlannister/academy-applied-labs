@@ -2,6 +2,13 @@
   "current": {
     "logo": "shopify:\/\/shop_images\/Miralou.svg",
     "cart_type": "drawer",
+    "upsells_visibility": false,
+    "upsells_products": [
+      "air-jordan-7-retro-q",
+      "air-max-plus",
+      "air-jordan-1-mid",
+      "air-force-1-7"
+    ],
     "sections": {
       "header": {
         "type": "header",

@@ -19,6 +19,7 @@
 }
 
 .cart-drawer {
+  width: 455px;
   opacity: 0;
   z-index: 66;
   position: fixed;
@@ -140,7 +141,7 @@
 }
 
 .cart-drawer__product-wrapper {
-  height: 100vh;
+  height: calc(100vh - 605px);
 }
 
 .cart-drawer__total {
@@ -150,4 +151,39 @@
 
 .cart-drawer__checkout button {
   width: 100%;
+}
+
+/* upsells  */
+
+.cart-drawer__upsells {
+  padding: 0 20px;
+}
+
+.cart-drawer__upsells-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.upsells-button-next {
+  z-index: 77;
+  position: absolute;
+  right: 0;
+  top: 54%;
+}
+
+.upsells-button-prev {
+  z-index: 77;
+  position: absolute;
+  left: 0;
+  top: 54%;
+}
+
+.upsells-button-next svg,
+.upsells-button-prev svg {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
 }

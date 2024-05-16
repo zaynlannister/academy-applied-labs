@@ -40,3 +40,16 @@ const productSwiper = new Swiper(".product-section__swiper", {
     clickable: true,
   },
 });
+
+const upsellsSwiper = new Swiper(".upsells-section__swiper", {
+  slidesPerView: 2,
+  spaceBetween: 30,
+  navigation: {
+    nextEl: ".upsells-button-next",
+    prevEl: ".upsells-button-prev",
+  },
+  pagination: {
+    el: ".upsells-swiper-pagination",
+    clickable: true,
+  },
+});

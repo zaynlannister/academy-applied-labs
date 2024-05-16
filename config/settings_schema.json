@@ -54,5 +54,15 @@
         "default": "default"
       }
     ]
+  },
+  {
+    "name": "Drawer upsells",
+    "settings": [
+      {
+        "type": "product_list",
+        "id": "upsells_products",
+        "label": "Choose product list"
+      }
+    ]
   }
 ]

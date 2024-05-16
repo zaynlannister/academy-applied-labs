@@ -49,6 +49,26 @@
                 </div>
                 <button type="submit" name="checkout" class="warn">Checkout</button>
             </div>
+
+            
+            <div class="cart-drawer__upsells">
+                <p class="cart-drawer__upsells-title">You may also like</p>
+                <div class="cart-drawer__upsells-wrapper swiper upsells upsells-section__swiper">
+                    <div class="swiper-wrapper">
+                        {% for product in settings.upsells_products %}
+                            <div class="swiper-slide">
+                                {% render 'product-card', product: product %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="upsells-button-next">
+                        {% render 'icon-right' %}
+                    </div>
+                    <div class="upsells-button-prev">
+                        {% render 'icon-left' %}
+                    </div>
+                </div>
+            </div>
         </div>
     {% endform %}
     {% endif %}
