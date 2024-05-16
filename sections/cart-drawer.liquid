@@ -16,7 +16,7 @@
         <div class="cart-drawer__container">
             <div class="cart-drawer__product-wrapper">
                 {% for item in cart.items %}
-                    <div class="cart-drawer__product">
+                    <div class="cart-drawer__product" data-line-item-key="{{ item.key }}">
                         <img src="{{ item.image | img_url: '100x' }}" alt="{{ item.title }}">
                         <div class="cart-drawer__info">
                             <div class="cart-drawer__title">
