@@ -1,7 +1,7 @@
 {
   "current": {
     "logo": "shopify:\/\/shop_images\/Miralou.svg",
-    "cart_type": "drawer",
+    "cart_type": "default",
     "upsells_products": [
       "air-max-plus",
       "air-jordan-1-mid",

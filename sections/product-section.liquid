@@ -1,10 +1,25 @@
 {{ 'section-product.css' |  asset_url |  stylesheet_tag }}
 <script src="{{ 'product-section.js' |  asset_url }}" defer="defer"></script>
 
+
+
 <div class="product-section">
     {% assign num_photos = 6 %}
     {% assign photos_count = product.images.size %}
     {% assign remaining_photos = num_photos | minus: photos_count %}
+
+    {% if product.metafields.custom.release_date %}
+        {% assign release_date_metaobject = product.metafields.custom.release_date %}
+    
+        {% if release_date_metaobject %}
+            {% assign release_date_object = release_date_metaobject.value %}
+    
+            {% if release_date_object %}
+                {% assign release_date_title = release_date_object.title %}
+                {% assign release_date_time = release_date_object.time %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
 
     <div class="container">
         <div class="product-wrapper">
@@ -46,6 +61,12 @@
                     </p>
                     <p class="product__price">{{ product.selected_or_first_available_variant.price |  money }}</p>
 
+                    {% if release_date_title and release_date_time %}
+                        <div id="countdown" class="release-date">
+                            <p>{{ release_date_title }}: {{ release_date_time | date: "%a, %b %d, %y %H:%M:%S" }}</p>
+                        </div>                        
+                    {% endif %}
+
                     {% unless product.has_only_default_variant %}
                         <div id="dataset-url" data-url="{{ product.url }}" class="product-section__variants-wrapper">
                             <label for="{{ forloop.index0 }}">Size</label>
@@ -61,7 +82,7 @@
                         {% if product.selected_or_first_available_variant.available == false %}
                             disabled
                         {% endif %}
-                        
+
                         {% if product.has_only_default_variant %}
                             disabled
                         {% endif %}
