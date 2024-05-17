@@ -223,6 +223,10 @@
   cursor: pointer;
 }
 
+.release-date {
+  display: none;
+}
+
 @media (max-width: 1000px) {
   .image-modal__img {
     width: 500px;

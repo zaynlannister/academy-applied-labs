@@ -63,8 +63,9 @@
 
                     {% if release_date_title and release_date_time %}
                         <div id="countdown" class="release-date">
-                            <p>{{ release_date_title }}: {{ release_date_time | date: "%a, %b %d, %y %H:%M:%S" }}</p>
-                        </div>                        
+                            <p>{{ release_date_title }}: <span id="countdown_timer"></span></p>
+                        </div> 
+                        <input type="hidden" id="releaseDateTime" value="{{ release_date_time }}">                       
                     {% endif %}
 
                     {% unless product.has_only_default_variant %}
@@ -125,6 +126,33 @@
 
 <script>
     localStorage.setItem("cart_type", '{{ settings.cart_type }}');
+
+    let releaseTitle = {{ release_date_title | json }};
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if(releaseTitle) {
+            let releaseDateTime = document.getElementById("releaseDateTime").value;
+            let releaseDate = new Date(releaseDateTime).getTime();
+
+            let countdownTimer = setInterval(function() {
+                let now = new Date().getTime(); 
+                let distance = releaseDate - now; 
+
+                if (distance > 0) {
+                    document.querySelector(".release-date").style.display = 'block';
+                    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById("countdown_timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                } else {
+                    clearInterval(countdownTimer);
+                    document.querySelector(".release-date").style.display = 'none';
+                }
+            }, 1000);
+        }
+    });
 </script>
 
 {% schema %}
