@@ -1,6 +1,46 @@
 {{ 'snippet-product.css' |  asset_url |  stylesheet_tag }}
 
 <div class="product-card">
+    <div id="product-card__form-{{ customId }}" class="product-card__form">
+        {% form 'product', product %}
+            <input id="product-card__form-input-{{ customId }}" type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <p class="product-card__form-title">{{ product.title }}</p>
+
+            <div class="product-card__form-variants">
+                {% unless product.has_only_default_variant %}    
+                    <div data-id="{{ customId }}" class="product-card__form-dropdown">
+                        <span class="poppins">Choose size</span>
+                        <span class="product-card__form-dropdown-icon">
+                            {% render 'icon-dropdown' %}
+                        </span>
+                    </div>
+                    <div id="product-card__form-wrapper-{{ customId }}" class="product-card__form-wrapper">
+                        {% for variant in product.variants %}
+                            <div data-id="{{ variant.id }}" data-price="{{ variant.price }}" custom-id="{{ customId }}" class="product-card__form-variant">{{ variant.title }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No variants</p>
+                {% endunless %}
+            </div>
+
+            <button type="submit" class="product-form__submit-button warn"
+                {% if product.selected_or_first_available_variant.available == false %}
+                    disabled
+                {% endif %}
+
+                {% if product.has_only_default_variant %}
+                    disabled
+                {% endif %}
+            >
+                {% if product.selected_or_first_available_variant.available == false %}
+                    Sold out
+                {% else %}
+                    Add to cart
+                {% endif %}
+            </button>
+        {% endform %}
+    </div>
     <div class="product-card__img">
         {% if product.featured_image %}
             <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}">

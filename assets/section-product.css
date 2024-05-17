@@ -91,7 +91,7 @@
   margin-top: 20px;
 }
 
-.product__submit-button[:disabled] {
+.product__submit-button[disabled] {
   cursor: not-allowed;
 }
 

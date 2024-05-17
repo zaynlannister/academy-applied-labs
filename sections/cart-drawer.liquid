@@ -57,7 +57,7 @@
                     <div class="cart-drawer__swiper-wrapper swiper-wrapper">
                         {% for product in settings.upsells_products %}
                             <div class="swiper-slide">
-                                {% render 'product-card', product: product %}
+                                {% render 'product-card', product: product, customId: forloop.index0 %}
                             </div>
                         {% endfor %}
                     </div>

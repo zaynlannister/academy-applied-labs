@@ -61,6 +61,10 @@
                         {% if product.selected_or_first_available_variant.available == false %}
                             disabled
                         {% endif %}
+                        
+                        {% if product.has_only_default_variant %}
+                            disabled
+                        {% endif %}
                     >
                         {% if product.selected_or_first_available_variant.available == false %}
                             Sold out
