@@ -1,0 +1,99 @@
+.login {
+  padding: 10px 0 60px 0;
+}
+
+.login form {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.login-form__title {
+  font-size: 24px;
+  text-align: center;
+}
+
+.login-form__email-section {
+  margin-bottom: 10px;
+}
+
+.login-form__email-section,
+.login-form__password-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form__email-section label,
+.login-form__password-section label {
+  margin-bottom: 10px;
+}
+
+.login-form__email-section input,
+.login-form__password-section input {
+  border: 1px solid #424242;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.login-form__submit {
+  margin-top: 15px;
+}
+
+.login-form__submit button {
+  width: 100%;
+  color: #fff;
+  background-color: #000;
+  padding: 10px;
+  border-radius: 4px;
+  transition: 150ms all;
+}
+
+.login-form__submit button:hover {
+  background-color: #424242;
+}
+
+.login-form__errors {
+  background-color: #d04444;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.login-form__errors ul {
+  margin: 0;
+  padding: 0 0 0 10px;
+  list-style: none;
+}
+
+.login-form__forgot-pass,
+.login-form__return-back {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.login-form__forgot-pass a,
+.login-form__return-back a {
+  text-decoration: underline;
+}
+
+.login-form__forgot-pass a:hover,
+.login-form__return-back a:hover {
+  color: rgb(196, 16, 0);
+}
+
+.recovery-section {
+  display: none;
+}
+
+.recovery-section.active {
+  display: block;
+}
+
+.login-section.inactive {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .login form {
+    width: 100%;
+  }
+}

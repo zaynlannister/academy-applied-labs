@@ -1,0 +1,59 @@
+{{ 'customer-login.css' |  asset_url |  stylesheet_tag }}
+<script src="{{ 'customer-login.js' |  asset_url }}" defer="defer"></script>
+
+<div class="login container">
+    <div class="login-form login-section">
+        <p class="login-form__title">Sign in to your account</p>
+        {% form 'customer_login' %}
+            {% if form.errors %}
+                <div class="login-form__errors poppins" role="alert">
+                    <strong>Error!</strong>
+                    <span>{{ form.errors |  default_errors }}</span>
+                </div>
+            {% endif %}
+
+            <div class="login-form__email-section">
+                <label for="email_address">Email address</label>
+                <input type="email" name="customer[email]" id="email_address" autocomplete="email" placeholder="Enter email">
+            </div>
+
+            {% if form.password_needed %}
+                <div class="login-form__password-section">
+                    <label for="password">Password</label>
+                    <input type="password" name="customer[password]" id="password" autocomplete="current-password" placeholder="Enter password">
+                </div>
+            {% endif %}
+            <div class="login-form__forgot-pass">
+                <a href="#">Forgot your password?</a>
+            </div>
+            <div class="login-form__submit">
+                <button type="submit">Sign in</button>
+            </div>
+        {% endform %}
+    </div>
+    
+    <div class="login-form recovery-section">
+        <p class="login-form__title">Recover your password</p>
+        {% form 'recover_customer_password' %}
+            {% if form.errors %}
+                <div class="login-form__errors poppins" role="alert">
+                    <strong>Error!</strong>
+                    <span>{{ form.errors |  default_errors }}</span>
+                </div>
+            {% endif %}
+
+            <div class="login-form__email-section">
+                <label for="email">Email address</label>
+                <input type="email" name="email" id="email" autocomplete="email" placeholder="Enter email">
+            </div>
+
+            <div class="login-form__return-back">
+                <a href="#">Return to login</a>
+            </div>
+            <div class="login-form__submit">
+                <button type="submit">Recover password</button>
+            </div>
+        {% endform %}
+    </div>
+    
+</div>
