@@ -86,6 +86,24 @@
   gap: 15px;
 }
 
+.header__links-customer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__links-customer a {
+  color: #000;
+}
+
+.header__links-customer a:hover svg {
+  stroke: #5e5e5e;
+}
+
+.header__links-logout:hover {
+  color: #5e5e5e;
+}
+
 .cart-count {
   position: absolute;
   top: -7px;

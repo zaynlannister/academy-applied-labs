@@ -98,14 +98,23 @@
                 {% endif %}
                 
                 {% if shop.customer_accounts_enabled %}
-                    <span class="header__links-account">
-                        <a href="{{ routes.account_login_url }}">
-                            {% render 'icon-login' %}
-                        </a>
-                        <a href="{{ routes.account_register_url }}">
-                            {% render 'icon-register' %}
-                        </a>
-                    </span>
+                    {% if customer %}
+                        <div class="header__links-customer">
+                            <a href="{{ routes.account_url }}" class="header__links-profile">
+                                {% render 'icon-account' %}
+                            </a>
+                            {{ 'Log out' | customer_logout_link | replace: '<a', '<a class="header__links-logout"' }}
+                        </div>
+                    {% else %}
+                        <span class="header__links-account">
+                            <a href="{{ routes.account_login_url }}">
+                                {% render 'icon-login' %}
+                            </a>
+                            <a href="{{ routes.account_register_url }}">
+                                {% render 'icon-register' %}
+                            </a>
+                        </span>
+                    {% endif %}
                 {% endif %}
                 <div class="header__burger-menu">
                     {% render 'icon-burger' %}

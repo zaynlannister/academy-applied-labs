@@ -1,0 +1,39 @@
+{{ 'customer-login.css' |  asset_url |  stylesheet_tag }}
+
+<div class="login container">
+    <div class="login-form">
+        <p class="login-form__title">Register an account</p>
+        {% form 'create_customer' %}
+            {% if form.errors %}
+                <div class="login-form__errors poppins" role="alert">
+                    <strong>Error!</strong>
+                    <span>{{ form.errors |  default_errors }}</span>
+                </div>
+            {% endif %}
+
+            <div class="login-form__email-section">
+                <label for="first_name">First name</label>
+                <input type="text" name="customer[first_name]" id="first_name" autocomplete="given-name" placeholder="Enter your first name">
+            </div>
+
+            <div class="login-form__email-section">
+                <label for="last_name">Last name</label>
+                <input type="text" name="customer[last_name]" id="last_name" autocomplete="family-name" placeholder="Enter your last name">
+            </div>
+
+            <div class="login-form__email-section">
+                <label for="email_address">Email address</label>
+                <input type="email" name="customer[email]" id="email_address" autocomplete="email" placeholder="Enter email">
+            </div>
+
+            <div class="login-form__password-section">
+                <label for="password">Password</label>
+                <input type="password" name="customer[password]" id="password" autocomplete="new-password" placeholder="Enter password">
+            </div>
+
+            <div class="login-form__submit">
+                <button type="submit">Register</button>
+            </div>
+        {% endform %}
+    </div>    
+</div>
