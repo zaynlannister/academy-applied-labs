@@ -42,3 +42,15 @@ function removeActiveVariants(variants) {
     item.classList.remove("active");
   });
 }
+
+const allAtcButtons = document.querySelectorAll(".product-form__submit-button");
+
+allAtcButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    const rootElement = button.parentElement;
+    const variant = rootElement.querySelector("input[name='id']");
+
+    window.Cart.add(variant.value, 1);
+  });
+});

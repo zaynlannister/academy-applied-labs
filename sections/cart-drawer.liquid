@@ -55,9 +55,11 @@
                 <p class="cart-drawer__upsells-title">You may also like</p>
                 <div class="cart-drawer__upsells-wrapper swiper upsells upsells-section__swiper">
                     <div class="cart-drawer__swiper-wrapper swiper-wrapper">
+                        {% assign id = 999 %}
                         {% for product in settings.upsells_products %}
+                            {% assign id = id | plus: 1 %}
                             <div class="swiper-slide">
-                                {% render 'product-card', product: product, customId: forloop.index0 %}
+                                {% render 'product-card', product: product, customId: id %}
                             </div>
                         {% endfor %}
                     </div>

@@ -58,11 +58,9 @@ function closeSearchBar() {
 class Cart {
   constructor() {
     this.items = [];
-
-    this.initializeFormProductAdd();
   }
 
-  async add(variant, quantity, properties = {}) {
+  async add(variant, quantity) {
     let formData = {
       items: [
         {
@@ -85,31 +83,18 @@ class Cart {
       .catch((error) => {
         console.error("Error:", error);
       });
-  }
 
-  initializeFormProductAdd() {
-    document.querySelectorAll('form[action="/cart/add"]').forEach((form) => {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    // update cart count
+    const res = await fetch("/cart.js");
+    const cart = await res.json();
+    this.updateCartIconCount(cart.item_count);
 
-        await fetch("/cart/add", {
-          method: "post",
-          body: new FormData(form),
-        });
+    const cartType = localStorage.getItem("cart_type");
 
-        // update cart count
-        const res = await fetch("/cart.js");
-        const cart = await res.json();
-        this.updateCartIconCount(cart.item_count);
-
-        const cartType = localStorage.getItem("cart_type");
-
-        if (cartType == "drawer") {
-          this.updateCartDrawer();
-          this.openDrawer();
-        }
-      });
-    });
+    if (cartType == "drawer") {
+      this.updateCartDrawer();
+      this.openDrawer();
+    }
   }
 
   addCartDrawerListeners() {
