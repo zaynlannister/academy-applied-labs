@@ -1,0 +1,67 @@
+{{ 'order-section.css' |  asset_url |  stylesheet_tag }}
+
+<div class="container">
+    <div class="order-wrapper">
+        <div class="order-wrapper__title">Order {{ order.name }}</div>
+        <p class="order-wrapper__date poppins">Created on {{ order.created_at | date: format: 'date' }}</p>
+        <div class="order-wrapper__status">
+            <span>
+                {{ order.financial_status_label }}
+            </span>
+            <a href="{{ routes.account_url }}">Back to account</a>
+        </div>
+
+        <div class="orders-container">
+            {% for line_item in order.line_items %}
+                <div class="order">
+                    <div class="order-col">
+                        <div class="order-img">
+                            {% if line_item.image %}
+                                <img src="{{ line_item.image | img_url: 'medium' }}" alt="{{ line_item.image.alt }}">
+                            {% else %}
+                                {{ 'product-1' | placeholder_svg_tag: 'order-img__placeholder' }}
+                            {% endif %}
+                        </div>
+                        <div class="order-info">
+                            <div class="order-info__title">{{ line_item.title |  link_to: line_item.product.url }}</div>
+    
+                            <table class="order-info__table poppins">
+                                <tr>
+                                    <td>Price</td>
+                                    <td>{{ line_item.original_price | money }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Quantity</td>
+                                    <td>{{ line_item.quantity }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>{{ line_item.final_line_price |  money }}</td>
+                                </tr>
+                            </table>
+    
+                            <div class="order-description poppins">
+                                <p>{{ line_item.product.description |  truncatewords: 10 }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-address">
+                        <p class="order-address__title">Delivery address</p>
+
+                        <div class="order-address__data poppins">
+                            <p>Address 1: {{ order.shipping_address.address1 }}</p>
+                            <p>Address 2: {{ order.shipping_address.address2 }}</p>
+                            <p>Street: {{ order.shipping_address.street }}</p>
+                            <p>Province: {{ order.shipping_address.province }}</p>
+                            <p>City: {{ order.shipping_address.city }}</p>
+                            <p>ZIP: {{ order.shipping_address.zip }}</p>
+                            <p>Country: {{ order.shipping_address.country }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+           
+        </div>
+    </div>
+</div>

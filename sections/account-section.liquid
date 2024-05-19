@@ -22,7 +22,7 @@
                                         {{ 'product-1' | placeholder_svg_tag: 'account-order__image-placeholder' }}
                                     {% endif %}
                                     <div class="account-order__link">
-                                        {{ order.name |  link_to: order.customer_order_url }}
+                                        {{ order.name |  link_to: order.customer_url }}
                                         <span class="account-order__status poppins">{{ order.fulfillment_status_label }}</span>
                                     </div>
                                     <div class="account-order__info poppins">
