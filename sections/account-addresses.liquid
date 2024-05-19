@@ -1,0 +1,281 @@
+{{ 'addresses-section.css' |  asset_url |  stylesheet_tag }}
+<script src="{{ 'addresses.js' |  asset_url }}" defer='defer'></script>
+
+<div class="container">
+    <div class="addresses">
+        <div class="addresses-header">
+            <p class="addresses-title">Addresses</p>
+            <button type="button" class="addresses-header__create-button ordinary">Create new address</button>
+            <a href="{{ routes.account_url }}" class="addresses-header__back-link">Back to account</a>
+        </div>
+    
+        <div>
+            {% paginate customer.addresses by 10 %}
+                <div class="addresses-wrapper">
+                    {% for address in customer.addresses %}                        
+                        <div class="address poppins">
+                            {% if address == customer.default_address %}
+                                <span class="address-default">Default</span>
+                            {% endif %}
+
+                            <div class="address__data">
+                                {{ address | format_address }}
+                            </div>
+
+                            <div class="address-buttons">
+                                <button data-id="{{ forloop.index0 }}" class="address-buttons__edit">Edit</button>
+                                <button data-delete-address data-url="{{ address.url }}" class="address-buttons__delete">Delete</button>
+                            </div>
+
+                            <form method="post" action="{{ address.url }}">
+                                <input type="hidden" name="_method" value="delete">
+                            </form>
+                        </div>
+
+                        <div id="edit-form-{{ forloop.index0 }}" class="addresses-edit">
+                            <div class="addresses-edit-wrapper">
+                                <div class="addresses-edit__header">
+                                    <h2 class="addresses-edit__header-title">Edit address</h2>
+                                    <button class="addresses-edit__header-button">{% render 'icon-close' %}</button>
+                                </div>
+
+                                {% form 'customer_address', address %}
+                                    <div class="edit-group">
+                                        <label for="address_fname_{{ form.id }}">First name</label>
+                                        <input 
+                                            type="text" 
+                                            name="address[first_name]" 
+                                            id="address_fname_{{ form.id }}"
+                                            value="{{ form.first_name }}"
+                                        >
+                                    </div>
+
+                                    <div class="edit-group">
+                                        <label for="address_lname_{{ form.id }}">Last name</label>
+                                        <input 
+                                            type="text" 
+                                            name="address[last_name]" 
+                                            id="address_lname_{{ form.id }}"
+                                            value="{{ form.last_name }}"
+                                        >
+                                    </div>
+
+                                    <div class="edit-group">
+                                        <label for="address_company_{{ form.id }}">Company</label>
+                                        <input 
+                                            type="text" 
+                                            name="address[company]" 
+                                            id="address_company_{{ form.id }}"
+                                            value="{{ form.company }}"
+                                        >
+                                    </div>
+
+                                    <div class="edit-group">
+                                        <label for="address_address1_{{ form.id }}">Address 1</label>
+                                        <input 
+                                            type="text" 
+                                            name="address[address1]" 
+                                            id="address_address1_{{ form.id }}"
+                                            value="{{ form.address1 }}"
+                                        >
+                                    </div>
+
+                                    <div class="edit-group">
+                                        <label for="address_address2_{{ form.id }}">Address 2</label>
+                                        <input 
+                                            type="text" 
+                                            name="address[address2]" 
+                                            id="address_address2_{{ form.id }}"
+                                            value="{{ form.address2 }}"
+                                        >
+                                    </div>
+
+                                    <div class="edit-group">
+                                        <label for="address_city_{{ form.id }}">City</label>
+                                        <input 
+                                            type="text" 
+                                            name="address[city]" 
+                                            id="address_city_{{ form.id }}"
+                                            value="{{ form.city }}"
+                                        >
+                                    </div>
+
+                                    <div class="edit-group">
+                                        <label for="address_country_{{ form.id }}">Country</label>
+                                        <select 
+                                            name="address[country]" 
+                                            id="address_country_{{ form.id }}"
+                                            value="{{ form.country }}"
+                                            data-country-selector
+                                            data-id="{{ form.id }}"
+                                        >
+                                            {{ all_country_option_tags }}
+                                        </select>
+                                    </div>
+
+                                    <div class="edit-group">
+                                        <label for="address_province_{{ form.id }}">Province</label>
+                                        <select 
+                                            name="address[province]" 
+                                            id="address_province_{{ form.id }}"
+                                            value="{{ form.province }}"
+                                        >
+                                        </select>
+                                    </div>
+
+                                    <div class="edit-group">
+                                        <label for="address_zip_{{ form.id }}">Postal/ZIP code</label>
+                                        <input 
+                                            type="text" 
+                                            name="address[zip]" 
+                                            id="address_zip_{{ form.id }}"
+                                            value="{{ form.zip }}"
+                                        >
+                                    </div>
+
+                                    <div class="edit-group">
+                                        <label for="address_phone_{{ form.id }}">Phone number</label>
+                                        <input 
+                                            type="tel" 
+                                            name="address[phone]" 
+                                            id="address_phone_{{ form.id }}"
+                                            value="{{ form.phone }}"
+                                        >
+                                    </div>
+
+                                    <div class="edit-group__checkbox">
+                                        {{ form.set_as_default_checkbox }}
+                                        <label class="poppins" for="address_default_address_{{ form.id }}">Set as default address</label>
+                                    </div>
+
+                                    <div class="addresses-edit__buttons">
+                                        <button type="submit" class="addresses-edit__buttons-create">Edit address</button>
+                                    </div>
+                                {% endform %}
+                            </div>
+                        </div>    
+                    {% endfor %}
+                </div>
+                {% render 'pagination', paginate: paginate %}
+            {% endpaginate %}
+        </div>
+
+        <div class="addressess-form">
+            <div class="addresses-form-wrapper">
+                <div class="addresses-form__header">
+                    <h2 class="addresses-form__header-title">New address</h2>
+                    <button class="addresses-form__header-button">{% render 'icon-close' %}</button>
+                </div>
+
+                {% form 'customer_address', customer.new_address %}
+                    <div class="form-group">
+                        <label for="address_fname_{{ form.id }}">First name</label>
+                        <input 
+                            type="text" 
+                            name="address[first_name]" 
+                            id="address_fname_{{ form.id }}"
+                            value="{{ form.first_name }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_lname_{{ form.id }}">Last name</label>
+                        <input 
+                            type="text" 
+                            name="address[last_name]" 
+                            id="address_lname_{{ form.id }}"
+                            value="{{ form.last_name }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_company_{{ form.id }}">Company</label>
+                        <input 
+                            type="text" 
+                            name="address[company]" 
+                            id="address_company_{{ form.id }}"
+                            value="{{ form.company }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_address1_{{ form.id }}">Address 1</label>
+                        <input 
+                            type="text" 
+                            name="address[address1]" 
+                            id="address_address1_{{ form.id }}"
+                            value="{{ form.address1 }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_address2_{{ form.id }}">Address 2</label>
+                        <input 
+                            type="text" 
+                            name="address[address2]" 
+                            id="address_address2_{{ form.id }}"
+                            value="{{ form.address2 }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_city_{{ form.id }}">City</label>
+                        <input 
+                            type="text" 
+                            name="address[city]" 
+                            id="address_city_{{ form.id }}"
+                            value="{{ form.city }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_country_{{ form.id }}">Country</label>
+                        <select 
+                            name="address[country]" 
+                            id="address_country_{{ form.id }}"
+                            value="{{ form.country }}"
+                            data-country-selector
+                            data-id="{{ form.id }}"
+                        >
+                            {{ all_country_option_tags }}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_province_{{ form.id }}">Province</label>
+                        <select 
+                            name="address[province]" 
+                            id="address_province_{{ form.id }}"
+                            value="{{ form.province }}"
+                        >
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_zip_{{ form.id }}">Postal/ZIP code</label>
+                        <input 
+                            type="text" 
+                            name="address[zip]" 
+                            id="address_zip_{{ form.id }}"
+                            value="{{ form.zip }}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_phone_{{ form.id }}">Phone number</label>
+                        <input 
+                            type="tel" 
+                            name="address[phone]" 
+                            id="address_phone_{{ form.id }}"
+                            value="{{ form.phone }}"
+                        >
+                    </div>
+
+                    <div class="addresses-form__buttons">
+                        <button type="submit" class="addresses-form__buttons-create">Create address</button>
+                    </div>
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</div>

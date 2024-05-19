@@ -1,0 +1,203 @@
+.addresses {
+  padding: 40px 0;
+}
+
+.addresses-title {
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.addresses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addresses-wrapper {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.address {
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #b2b2b2;
+  padding: 10px;
+}
+
+.address__data {
+  height: 100%;
+  margin: 20px 0;
+}
+
+.address__data p {
+  margin: 0;
+}
+
+.address-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.address-buttons button {
+  width: 100%;
+  padding: 6px 0;
+}
+
+.address-buttons__edit {
+  background-color: #6f6f6f;
+  color: #fff;
+}
+
+.address-buttons__edit:hover {
+  background-color: #454545;
+}
+
+.address-buttons__delete {
+  background-color: rgb(212, 80, 80);
+  color: #fff;
+}
+
+.address-buttons__delete:hover {
+  background-color: rgb(180, 50, 50);
+}
+
+.address-default {
+  background-color: #4ca333;
+  color: #fff;
+  padding: 5px 0;
+}
+
+/* edit modal  */
+
+.addresses-edit {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(75, 85, 99, 0.5);
+  overflow-y: auto;
+  z-index: 50;
+  height: 100%;
+  width: 100%;
+}
+
+.edit-group__checkbox {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.addresses-edit.active {
+  display: block;
+}
+
+/* create address modal  */
+
+.addressess-form {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(75, 85, 99, 0.5);
+  overflow-y: auto;
+  z-index: 50;
+  height: 100%;
+  width: 100%;
+}
+
+.addressess-form.active {
+  display: block;
+}
+
+.addresses-form-wrapper,
+.addresses-edit-wrapper {
+  position: relative;
+  max-width: 28rem;
+  margin: 5rem auto;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  padding: 1rem;
+}
+
+.addresses-form__header,
+.addresses-edit__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.addresses-form__header-title,
+.addresses-edit__header-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.addresses-form__header-button,
+.addresses-edit__header-button {
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.form-group,
+.edit-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label,
+.edit-group label {
+  display: block;
+  text-transform: uppercase;
+  color: #374151;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.edit-group input,
+.edit-group select {
+  width: 100%;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 0.75rem 1rem;
+  outline: none;
+}
+
+.addresses-form__buttons,
+.addresses-edit__buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.addresses-form__buttons-create,
+.addresses-edit__buttons-create {
+  width: 100%;
+  font-weight: 500;
+  color: white;
+  background-color: #374151;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.addresses-form__buttons-create:hover,
+.addresses-edit__buttons-create:hover {
+  background-color: #1f2937;
+}
+
+.addresses-form__buttons-cancel,
+.addresses-edit__buttons-cancel {
+  width: 100%;
+  font-weight: 500;
+  color: #374151;
+  border: 1px solid #374151;
+  padding: 0.5rem 1rem;
+  background: none;
+  cursor: pointer;
+}
