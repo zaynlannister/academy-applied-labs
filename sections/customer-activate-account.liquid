@@ -1,0 +1,45 @@
+{{ 'customer-login.css' |  asset_url |  stylesheet_tag }}
+
+<div class="login container">
+    <div class="login-form">
+        <p class="login-form__title">Activate your account</p>
+        {% form 'activate_customer_password' %}
+            {% if form.errors %}
+                <div class="login-form__errors poppins" role="alert">
+                    <strong>Error!</strong>
+                    <span>{{ form.errors |  default_errors }}</span>
+                </div>
+            {% endif %}
+
+            <div class="login-form__password-section">
+                <label for="password">Password</label>
+                <input type="password" name="customer[password]" id="password" autocomplete="new-password" placeholder="New password">
+            </div>
+
+            <div class="login-form__password-section">
+                <label for="confirm-password">Confirm password</label>
+                <input type="password" name="customer[password_confirmation]" id="confirm-password" autocomplete="new-password" placeholder="Confirm your password">
+            </div>
+
+            <div class="login-form__submit">
+                <button type="submit">Activate account</button>
+                <button class="activate-form__decline-btn" type="submit" name="decline">Decline</button>
+            </div>
+        {% endform %}
+    </div>    
+</div>
+
+<style>
+    .login-form__password-section {
+        margin-bottom: 10px;
+    }
+
+    .login-form .activate-form__decline-btn {
+        background-color: rgb(218, 51, 51);
+        margin-top: 10px;
+    }
+    .login-form .activate-form__decline-btn:hover {
+        background-color: rgb(172, 32, 32);
+        margin-top: 10px;
+    }
+</style>
