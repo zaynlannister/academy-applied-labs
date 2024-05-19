@@ -1,0 +1,54 @@
+{{ 'section-account.css' |  asset_url |  stylesheet_tag }}
+
+<div class="container">
+    <div class="account">
+        <div class="account-col">
+            <p class="account-title">Account</p>
+
+            <div class="account-orders">
+                {% assign number_of_orders = customer.orders | size %}
+                {% if number_of_orders > 0 %}
+                    <p class="account-orders__title">Order history</p>
+
+                    {% paginate customer.orders by 6 %}
+                        <div class="account-orders-wrapper">
+                            {% for order in customer.orders %}
+                                <div class="account-order">
+                                    {% if order.line_items.first.image %}
+                                        <div class="account-order__image">
+                                            <img src="{{ order.line_items.first.image | img_url: 'medium' }}" alt="{{ order.line_items.first.image.alt }}">
+                                        </div>
+                                    {% else %}
+                                        {{ 'product-1' | placeholder_svg_tag: 'account-order__image-placeholder' }}
+                                    {% endif %}
+                                    <div class="account-order__link">
+                                        {{ order.name |  link_to: order.customer_order_url }}
+                                        <span class="account-order__status poppins">{{ order.fulfillment_status_label }}</span>
+                                    </div>
+                                    <div class="account-order__info poppins">
+                                        <p>{{ order.financial_status_label }}</p>
+                                        <p>{{ order.total_price | money }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                        {% render 'pagination', paginate: paginate %}
+                    {% endpaginate %}
+                {% else %}
+                    <p class="no-orders">You do not have any orders</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="account-col-2">
+            <div class="account-details">
+                <p class="account-details__title">Account details</p>
+                <div class="poppins">
+                    {{ customer.default_address |  format_address }}
+                    <a href="{{ routes.account_addresses_url }}">View addresses</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
