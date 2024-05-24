@@ -112,8 +112,15 @@
   font-family: "Poppins";
   background-color: #ef3636;
   color: #fff;
-  padding: 1px 4px;
+  height: 13px;
+  width: 12px;
   border-radius: 50%;
+  text-align: center;
+}
+
+.cart-count.none {
+  height: 0;
+  width: 0;
 }
 
 /* header search  */

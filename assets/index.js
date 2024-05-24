@@ -128,6 +128,7 @@ class Cart {
         });
 
         const cart = await res.json();
+
         this.updateCartIconCount(cart.item_count);
 
         // update cart
@@ -188,7 +189,14 @@ class Cart {
   }
 
   updateCartIconCount(count) {
-    document.querySelector(".cart-count").textContent = count;
+    const cartCountElement = document.querySelector(".cart-count");
+
+    if (cartCountElement && count) {
+      cartCountElement.classList.remove("none");
+      cartCountElement.textContent = count;
+    } else {
+      cartCountElement.classList.add("none");
+    }
   }
 
   openDrawer() {

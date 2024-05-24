@@ -85,6 +85,8 @@
                         {% render 'icon-shopping' %}
                         {% if cart.item_count > 0 %}
                             <span class="cart-count">{{ cart.item_count }}</span>
+                        {% else %}
+                            <span class="cart-count none"></span>
                         {% endif %}
                         
                     </a>
@@ -93,6 +95,8 @@
                         {% render 'icon-shopping' %}
                         {% if cart.item_count > 0 %}
                             <span class="cart-count">{{ cart.item_count }}</span>
+                        {% else %}
+                            <span class="cart-count none"></span>
                         {% endif %}
                     </a>
                 {% endif %}

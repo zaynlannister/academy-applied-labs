@@ -9,38 +9,41 @@
             {% render 'icon-remove' %}
         </div>
     </div>
-    {% if cart.empty? %}
-        <p class="cart-drawer-empty poppins">Your cart is empty</p>
-    {% else %}
+   
     {% form 'cart', cart %}
         <div class="cart-drawer__container">
             <div class="cart-drawer__product-wrapper">
-                {% for item in cart.items %}
-                    <div class="cart-drawer__product" data-line-item-key="{{ item.key }}">
-                        <img src="{{ item.image | img_url: '100x' }}" alt="{{ item.title }}">
-                        <div class="cart-drawer__info">
-                            <div class="cart-drawer__title">
-                                <a href="{{ item.url }}">
-                                    {{ item.product.title |  truncate: 20 }}
-                                </a>
+                {% if cart.empty? %}
+                    <p class="cart-drawer-empty poppins">Your cart is empty</p>
+                    {% else %}
+                        {% for item in cart.items %}
+                            <div class="cart-drawer__product" data-line-item-key="{{ item.key }}">
+                                <img src="{{ item.image | img_url: '100x' }}" alt="{{ item.title }}">
+                                <div class="cart-drawer__info">
+                                    <div class="cart-drawer__title">
+                                        <a href="{{ item.url }}">
+                                            {{ item.product.title |  truncate: 20 }}
+                                        </a>
+                                    </div>
+                                    <div class="cart-drawer__variant">{{ item.variant.title }}</div>
+                                    <div class="cart-drawer__price">{{ item.final_line_price | money }}</div>
+                                </div>
+                                <div class="cart-drawer__quantity">
+                                    <button type="button" class="cart-drawer__quantity-minus">
+                                        {% render 'icon-minus' %}
+                                    </button>
+                                    <input readonly name="quantity" value="{{ item.quantity }}">
+                                    <button type="button" class="cart-drawer__quantity-plus">
+                                        {% render 'icon-plus' %}
+                                    </button>
+                                </div>
+                                <div class="cart-drawer__remove">
+                                    {% render 'icon-remove' %}
+                                </div>
                             </div>
-                            <div class="cart-drawer__variant">{{ item.variant.title }}</div>
-                            <div class="cart-drawer__price">{{ item.final_line_price | money }}</div>
-                        </div>
-                        <div class="cart-drawer__quantity">
-                            <button type="button" class="cart-drawer__quantity-minus">
-                                {% render 'icon-minus' %}
-                            </button>
-                            <input readonly name="quantity" value="{{ item.quantity }}">
-                            <button type="button" class="cart-drawer__quantity-plus">
-                                {% render 'icon-plus' %}
-                            </button>
-                        </div>
-                        <div class="cart-drawer__remove">
-                            {% render 'icon-remove' %}
-                        </div>
-                    </div>
-                {% endfor %}
+                        {% endfor %}
+                {% endif %}
+                
             </div>
             
             <div class="cart-drawer__checkout">
@@ -73,7 +76,7 @@
             </div>
         </div>
     {% endform %}
-    {% endif %}
+    
 </div>
 
 <script>
